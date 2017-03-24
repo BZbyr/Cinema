@@ -27,7 +27,7 @@ public class Ticket {
         this.ticketId = random8;
         //检查这个id是否已经被应用过了,从ticket.txt中读取
         while(checkId){
-            int random8 = random.nextInt(max)%(max-min+1) + min;
+            random8 = random.nextInt(max)%(max-min+1) + min; //多余的int
         }
 
 
