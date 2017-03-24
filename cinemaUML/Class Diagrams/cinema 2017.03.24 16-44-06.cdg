@@ -53,7 +53,7 @@
         <Method name="enterAdmin" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Ticket" package="" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Ticket" package="" visibility="public" xPosition="20.0" yPosition="431.0">
       <Fields>
         <Field name="ticketId" type="int" visibility="private"/>
         <Field name="filmId" type="int" visibility="private"/>
@@ -75,7 +75,7 @@
         <Method name="checkId" returnType="boolean" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="UserInterface" package="" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Class name="UserInterface" package="" visibility="public" xPosition="572.0" yPosition="431.0">
       <Fields/>
       <Constructors/>
       <Methods>
