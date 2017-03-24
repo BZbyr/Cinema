@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="cinema">
+  <ClassDiagramComponents>
+    <Class name="AdminInterface" package="" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="AdminInfo" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="changePassword" returnType="void" visibility="public"/>
+        <Method name="login" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CinemaInfo" package="" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="hallId" type="int" visibility="private"/>
+        <Field name="FilmId" type="int" visibility="private"/>
+        <Field name="SeatLeft" type="int" visibility="private"/>
+        <Field name="layout" type="int[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getHallId" returnType="int" visibility="public"/>
+        <Method name="setHallId" returnType="void" visibility="public">
+          <Argument type="int" name="hallId"/>
+        </Method>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="setFilmId" returnType="void" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="getSeatLeft" returnType="int" visibility="public"/>
+        <Method name="setSeatLeft" returnType="void" visibility="public">
+          <Argument type="int" name="seatLeft"/>
+        </Method>
+        <Method name="getLayout" returnType="int[]" visibility="public"/>
+        <Method name="setLayout" returnType="void" visibility="public">
+          <Argument type="int[]" name="layout"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CinemaManagement" package="" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+        <Method name="enterUser" returnType="void" visibility="public"/>
+        <Method name="enterAdmin" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ticket" package="" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="ticketId" type="int" visibility="private"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="screen" type="int" visibility="private"/>
+        <Field name="seat" type="String[]" visibility="private"/>
+        <Field name="ticketType" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="filmId"/>
+          <Argument type="String" name="stringDate"/>
+          <Argument type="int" name="screen"/>
+          <Argument type="String[]" name="seat"/>
+          <Argument type="int" name="ticketType"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="checkId" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserInterface" package="" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buyTicket" returnType="void" visibility="public"/>
+        <Method name="refund" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

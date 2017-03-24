@@ -3,9 +3,9 @@ import java.util.Scanner;
 /**
  * Created by wangchao on 2017/3/23.
  */
-public class Main {
+public class CinemaManagement {
     public static void main(String args[]){
-        Main main = new Main();
+        CinemaManagement main = new CinemaManagement();
         boolean flag = true;
         while(flag) {
             System.out.println("1----User" );
