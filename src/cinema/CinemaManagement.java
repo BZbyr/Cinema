@@ -1,3 +1,5 @@
+package cinema;
+
 import java.util.Scanner;
 
 /**
@@ -55,6 +57,7 @@ public class CinemaManagement {
         Scanner sc = new Scanner(System.in);
         System.out.println("Admin interface");
         boolean loginFlag = true;
+        //ATTENTION此处没有退出函数，后期应当补充
         while(loginFlag) {
             System.out.println("Please enter your username");
             String username = sc.nextLine();

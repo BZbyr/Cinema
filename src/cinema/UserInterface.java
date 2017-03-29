@@ -1,3 +1,5 @@
+package cinema;
+
 /**
  * Created by wangchao on 2017/3/23.
  */
