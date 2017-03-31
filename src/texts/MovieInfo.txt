@@ -1,0 +1,3 @@
+名称$时长$照片$屏幕$时间段
+The Shawshank Redemption$143$1.jpg$100$8:00-9:30
+The Shawshank Redemption$143$1.jpg$010$8:00-9:30
