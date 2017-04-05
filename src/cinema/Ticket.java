@@ -11,16 +11,18 @@ import Test.*;
  * Created by wangchao on 2017/3/24.
  */
 public class Ticket {
-      //tick.txt
+    //ticket.txt
     File TicketInfo = new File("src/texts/TicketInfo.txt");
     //随机数作为TicketID
     private String ticketId;
     //电影ID
     private int filmId;
-    //时间
+    //日期
     private Date date;
     //日期格式
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
+    //时间 分钟记
+    private int timeInterval;
     //厅（屏幕）号
     private int screen;
     //座位号,不确定数据类型是否合适
@@ -28,7 +30,7 @@ public class Ticket {
     //票类型
     private int ticketType;
     //构造函数
-    public Ticket(int filmId,String stringDate,int screen,char[] seat, int ticketType){
+    public Ticket(int filmId,String stringDate,int timeInterval,int screen,char[] seat, int ticketType){
         int max=4;
         int min=1;
         String randomID;
@@ -53,6 +55,7 @@ public class Ticket {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        this.timeInterval = timeInterval;
         this.ticketType = ticketType;
     }
     //检查这个id是否已经被应用过了,从TicketInfo.txt中读取
@@ -82,11 +85,10 @@ public class Ticket {
     public void writeTicketInfo(Ticket ticket){
         BufferedWriter bw = null;
         String line = "" + ticket.ticketId + "$" + ticket.filmId + "$" + sdf.format(ticket.date) + "$"
-                + ticket.screen + "$" + ticket.seat[0] + ticket.seat[1] + "$" + ticket.ticketType;
+                + ticket.timeInterval + "$" + ticket.screen + "$" + ticket.seat[0] + ticket.seat[1] + "$" + ticket.ticketType;
         //debug
         if(Test.Debug)
             System.out.println(line);
-
         try {
             //追加写 append: true
             bw = new BufferedWriter(new FileWriter(TicketInfo,true));
