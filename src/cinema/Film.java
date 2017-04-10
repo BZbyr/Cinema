@@ -38,9 +38,7 @@ public class Film {
         return this.filmIntro;
     }
 
-    public Film(){
-
-    }
+    public Film(){}
     public Film(String filmName, int timeInterval, String pictureSrc,String filmIntro){
         //自生成filmId的构造函数
         this.filmName = filmName;
@@ -98,7 +96,6 @@ public class Film {
         if(Test.Debug)
             System.out.println("num flag" + numFlag);
 
-
         Film returnFilm = new Film();
         BufferedReader br = null;
         String line = "";
@@ -113,8 +110,6 @@ public class Film {
                     returnFilm.timeInterval = Integer.parseInt(lineElement[2]);
                     returnFilm.pictureSrc = lineElement[3];
                     returnFilm.filmIntro = lineElement[4];
-                } else {
-                    System.out.println("found null");
                 }
             }
         } catch (IOException e) {

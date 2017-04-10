@@ -3,6 +3,7 @@ package cinema;
 import Test.Test;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +21,37 @@ public class Screen {
     SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
 
     private int  screenId;
+
+    public int getScreenId() {
+        return screenId;
+    }
+
     private int filmId;
+
+    public int getFilmId() {
+        return filmId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getTimeInterval() {
+        return timeInterval;
+    }
+
+    public int getLeftTicketNum() {
+        return leftTicketNum;
+    }
+
+    public int getTotalSeatNum() {
+        return totalSeatNum;
+    }
+
+    public int getLayoutId() {
+        return layoutId;
+    }
+
     //日期
     private Date date;
     //时间长度(分钟计)
@@ -95,7 +126,6 @@ public class Screen {
 
     }
     public void writeScreenInfo(Screen screen,boolean appendFlag){
-
         BufferedWriter bw = null;
         String line = "" + screen.screenId + "$" + screen.filmId + "$" + sdf.format(screen.date) + "$" + screen.timeInterval + "$"
                 + screen.leftTicketNum +"$"+ screen.totalSeatNum+ "$" + screen.layoutId;
@@ -137,31 +167,31 @@ public class Screen {
         String line = "";
         String lineElement [];
         try {
-            br = new BufferedReader(new FileReader(ScreenInfo));
-            while((line = br.readLine())!=null){
-                //文件分割符
-                lineElement = line.split("\\$");
-                //String line = "" + screen.screenId + "$" + screen.filmId + "$" + sdf.format(screen.date) + "$" +
-                // screen.timeInterval + "$"
-                //+ screen.leftTicketNum + screen.totalSeatNum + screen.layoutId;
-                Screen tempScreen = new Screen();
-                tempScreen.screenId = Integer.parseInt(lineElement[0]);
-                tempScreen.filmId = Integer.parseInt(lineElement[1]);
-                tempScreen.date = sdf.parse(lineElement[2]);
-                tempScreen.timeInterval = Integer.parseInt(lineElement[3]);
-                tempScreen.leftTicketNum = Integer.parseInt(lineElement[4]);
-                tempScreen.totalSeatNum = Integer.parseInt(lineElement[5]);
-                tempScreen.layoutId = Integer.parseInt(lineElement[6]);
-                screenArr.add(tempScreen);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
+        br = new BufferedReader(new FileReader(ScreenInfo));
+        while((line = br.readLine())!=null){
+            //文件分割符
+            lineElement = line.split("\\$");
+            //String line = "" + screen.screenId + "$" + screen.filmId + "$" + sdf.format(screen.date) + "$" +
+            // screen.timeInterval + "$"
+            //+ screen.leftTicketNum + screen.totalSeatNum + screen.layoutId;
+            Screen tempScreen = new Screen();
+            tempScreen.screenId = Integer.parseInt(lineElement[0]);
+            tempScreen.filmId = Integer.parseInt(lineElement[1]);
+            tempScreen.date = sdf.parse(lineElement[2]);
+            tempScreen.timeInterval = Integer.parseInt(lineElement[3]);
+            tempScreen.leftTicketNum = Integer.parseInt(lineElement[4]);
+            tempScreen.totalSeatNum = Integer.parseInt(lineElement[5]);
+            tempScreen.layoutId = Integer.parseInt(lineElement[6]);
+            screenArr.add(tempScreen);
         }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    } catch (ParseException e) {
+        e.printStackTrace();
     }
+}
 
     //更新文件 int num 正数代表加，负数代表减，触发时间为退票/订票
     //先读后改再写
@@ -185,6 +215,64 @@ public class Screen {
 
             writeScreenInfo(writeTempScreen,false);
         }
-
     }
+    public ArrayList<Date> getTimeByFilm(int filmId){
+        ArrayList<Date> dateArr = new ArrayList<Date>();
+        BufferedReader br = null;
+        String line = "";
+        String lineElement [];
+        try {
+            br = new BufferedReader(new FileReader(ScreenInfo));
+            while((line = br.readLine())!=null){
+                lineElement = line.split("\\$");
+                if(Integer.parseInt(lineElement[1]) == filmId) {
+                    if (Test.Debug) {
+                        System.out.println("Find film with same id");
+                    }
+                    Date tmpDate = sdf.parse(lineElement[2]);
+                    dateArr.add(tmpDate);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dateArr;
+    }
+    public Screen getScreenByDate(String date){
+        BufferedReader br = null;
+        String line = "";
+        String lineElement [];
+        Screen tempScreen = new Screen();
+
+        try {
+            br = new BufferedReader(new FileReader(ScreenInfo));
+            while((line = br.readLine())!=null){
+                lineElement = line.split("\\$");
+                if(lineElement[2].equals(date)) {
+                    if (Test.Debug) {
+                        System.out.println("Find film with same date");
+                    }
+                    tempScreen.screenId = Integer.parseInt(lineElement[0]);
+                    tempScreen.filmId = Integer.parseInt(lineElement[1]);
+                    tempScreen.date = sdf.parse(lineElement[2]);
+                    tempScreen.timeInterval = Integer.parseInt(lineElement[3]);
+                    tempScreen.leftTicketNum = Integer.parseInt(lineElement[4]);
+                    tempScreen.totalSeatNum = Integer.parseInt(lineElement[5]);
+                    tempScreen.layoutId = Integer.parseInt(lineElement[6]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return tempScreen;
+    }
+
 }

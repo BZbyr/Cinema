@@ -4,7 +4,7 @@ import cinema.*;
  * Created by wangchao on 2017/3/29.
  */
 public class Test {
-    public static boolean Debug = true;
+    public static boolean Debug = false;
     public static void main(String args[]){
         //Ticket
         /*char [] seat = {'A','1'};

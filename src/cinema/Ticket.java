@@ -4,6 +4,7 @@ import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import Test.*;
@@ -24,13 +25,26 @@ public class Ticket {
     //时间 分钟记
     private int timeInterval;
     //厅（屏幕）号
-    private int screen;
+    private int screenId;
     //座位号,不确定数据类型是否合适
-    private char[] seat;
+    private int[] seat;
     //票类型
     private int ticketType;
+
+    @Override
+    public String toString() {
+        Film film = (new Film()).readFilmInfo(""+filmId);
+        return "Your Ticket:" +
+                "\nFilm Name:" + film.getfilmName()+
+                "\nTime: " + date +
+                "\n" + timeInterval + "min" +
+                "\nNo.of screen: " + screenId +
+                "\nseat number: " + Arrays.toString(seat) +
+                "\nTick type is " + ticketType ;
+    }
+
     //构造函数
-    public Ticket(int filmId,String stringDate,int timeInterval,int screen,char[] seat, int ticketType){
+    public Ticket(int filmId,Date passedDate,int timeInterval,int screenId,int[] seat, int ticketType){
         int max=4;
         int min=1;
         String randomID;
@@ -49,12 +63,9 @@ public class Ticket {
         if(Test.Debug){
             System.out.println(seat);
         }
-        this.screen = screen;
-        try {
-            this.date = sdf.parse(stringDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.screenId = screenId;
+        this.date = passedDate;
+
         this.timeInterval = timeInterval;
         this.ticketType = ticketType;
     }
@@ -76,6 +87,7 @@ public class Ticket {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+
             e.printStackTrace();
         }
         //没有重复返回真，有重复返回假
@@ -85,7 +97,7 @@ public class Ticket {
     public void writeTicketInfo(Ticket ticket){
         BufferedWriter bw = null;
         String line = "" + ticket.ticketId + "$" + ticket.filmId + "$" + sdf.format(ticket.date) + "$"
-                + ticket.timeInterval + "$" + ticket.screen + "$" + ticket.seat[0] + ticket.seat[1] + "$" + ticket.ticketType;
+                + ticket.timeInterval + "$" + ticket.screenId + "$" + ticket.seat[0] + ticket.seat[1] + "$" + ticket.ticketType;
         //debug
         if(Test.Debug)
             System.out.println(line);
