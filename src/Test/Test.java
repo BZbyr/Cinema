@@ -1,5 +1,6 @@
 package Test;
-import cinema.*;
+import cinema.Entity.Film;
+
 /**
  * Created by wangchao on 2017/3/29.
  */
@@ -22,7 +23,7 @@ public class Test {
         // film.writeFilmInfo(film);
         //测试读取信息
         Film film = new Film();
-        film = film.readFilmInfo("0");
+       // film = film.readFilmInfo("0");
         System.out.println(""+film.getFilmIntro());
             }
 }

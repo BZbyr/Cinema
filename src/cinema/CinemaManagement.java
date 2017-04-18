@@ -43,7 +43,7 @@ public class CinemaManagement {
             int userChoose = Integer.parseInt(scUser.nextLine());
             switch (userChoose){
                 case 1:
-                    ui.buyTicket();
+                    //ui.buyTicket();
                 case 2:
                     ui.refund();
                 case 3:

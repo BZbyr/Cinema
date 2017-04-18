@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import Test.Test;
-import cinema.*;
+import cinema.Entity.Layout;
+import cinema.Entity.Screen;
+import cinema.Entity.Ticket;
+
 /**
  * Created by wangchao on 2017/3/23.
  */
@@ -14,43 +16,13 @@ public class UserInterface {
     //日期格式
     SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
 
-    public void buyTicket(){
-        UserInterface ui = new UserInterface();
-        int listNum =  ui.listFilm();
 
-    }
     public void refund(){
 
     }
 
-    private int listFilm(){
-        if(Test.Debug) {
-            System.out.println("list film");
-        }
-        Film film = new Film();
-        int filmNum = film.calfilmNum();
-        for(int i = 0 ; i< filmNum ; i++){
-            Film tmpFilm = film.readFilmInfo(i+"");
-            System.out.print("ID: "+ (tmpFilm.getFilmId()+1));
-            System.out.println("Name: "+tmpFilm.getfilmName());
-            System.out.println(" Intro: " + tmpFilm.getFilmIntro());
-        }
-        boolean filmFlag = false;
-        do{
-            System.out.println("Please choose the No. of film");
-            Scanner sc = new Scanner(System.in);
-            String chooseFilm = sc.nextLine();
-            int chosenFilm = Integer.parseInt(chooseFilm);
-            if((chosenFilm<=0)||(chosenFilm>filmNum+1)){
-                filmFlag = true;
-                System.out.println("Wrong!");
-            }else{
-                this.listDateByFilm(chosenFilm);
-            }
-        }while(filmFlag);
-        return filmNum;
-    }
-    private void listDateByFilm(int chosenFilm){
+
+  /*  private void listDateByFilm(int chosenFilm){
         Screen tmpScreen = new Screen();
         ArrayList<Date> tmpDateArr = new ArrayList<Date>();
         tmpDateArr = tmpScreen.getTimeByFilm(chosenFilm);
@@ -72,6 +44,7 @@ public class UserInterface {
             }
         }while(dateFlag);
     }
+
     private void listScreenByDate(Date chosenDate){
         Screen tmpScreen = new Screen();
         System.out.println("chosenDate = "+sdf.format(chosenDate));
@@ -164,4 +137,5 @@ public class UserInterface {
         }while(confirmFlag);
         ticket.writeTicketInfo(ticket);
     }
+    */
 }
