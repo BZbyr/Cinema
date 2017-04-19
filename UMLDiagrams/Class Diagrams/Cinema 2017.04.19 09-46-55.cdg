@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Cinema">
   <ClassDiagramComponents>
-    <Class name="AdminInterface" package="cinema" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="AdminInterface" package="cinema" visibility="public" xPosition="2834.0" yPosition="-3.0">
       <Fields>
         <Field name="AdminInfo" type="File" visibility="package"/>
       </Fields>
@@ -15,7 +15,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="CinemaManagement" package="cinema" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="CinemaManagement" package="cinema" visibility="public" xPosition="2897.0" yPosition="23.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -26,7 +26,7 @@
         <Method name="enterAdmin" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="FilmControl" package="cinema.Control" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="FilmControl" package="cinema.Control" visibility="public" xPosition="1339.0" yPosition="84.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -42,7 +42,7 @@
         <Method name="listFilm" returnType="ArrayList&lt;Film&gt;" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="LayoutControl" package="cinema.Control" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="LayoutControl" package="cinema.Control" visibility="public" xPosition="545.0" yPosition="6.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -51,7 +51,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ScreenControl" package="cinema.Control" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Class name="ScreenControl" package="cinema.Control" visibility="public" xPosition="2155.0" yPosition="1771.0">
       <Fields>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
       </Fields>
@@ -71,7 +71,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="TicketControl" package="cinema.Control" visibility="public" xPosition="1520.0" yPosition="20.0">
+    <Class name="TicketControl" package="cinema.Control" visibility="public" xPosition="1935.0" yPosition="996.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -89,7 +89,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Film" package="cinema.Entity" visibility="public" xPosition="1820.0" yPosition="20.0">
+    <Class name="Film" package="cinema.Entity" visibility="public" xPosition="2834.0" yPosition="47.0">
       <Fields>
         <Field name="filmId" type="int" visibility="private"/>
         <Field name="filmName" type="String" visibility="private"/>
@@ -132,7 +132,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Layout" package="cinema.Entity" visibility="public" xPosition="2149.0" yPosition="44.0">
+    <Class name="Layout" package="cinema.Entity" visibility="public" xPosition="2834.0" yPosition="143.0">
       <Fields>
         <Field name="LayoutId" type="int" visibility="private"/>
         <Field name="rowNum" type="int" visibility="private"/>
@@ -159,7 +159,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Screen" package="cinema.Entity" visibility="public" xPosition="20.0" yPosition="420.0">
+    <Class name="Screen" package="cinema.Entity" visibility="public" xPosition="1.0" yPosition="3391.0">
       <Fields>
         <Field name="screenArr" type="ArrayList&lt;Screen&gt;" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -222,7 +222,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Seat" package="cinema.Entity" visibility="public" xPosition="320.0" yPosition="420.0">
+    <Class name="Seat" package="cinema.Entity" visibility="public" xPosition="582.0" yPosition="3534.0">
       <Fields>
         <Field name="takenFlag" type="boolean" visibility="private"/>
         <Field name="colNum" type="int" visibility="private"/>
@@ -255,7 +255,7 @@
         <Method name="hashCode" returnType="int" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Ticket" package="cinema.Entity" visibility="public" xPosition="620.0" yPosition="420.0">
+    <Class name="Ticket" package="cinema.Entity" visibility="public" xPosition="775.0" yPosition="3617.0">
       <Fields>
         <Field name="ticketId" type="String" visibility="private"/>
         <Field name="filmId" type="int" visibility="private"/>
@@ -310,7 +310,7 @@
         <Method name="getFilm" returnType="Film" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Film" package="cinema" visibility="public" xPosition="920.0" yPosition="420.0">
+    <Class name="Film" package="cinema" visibility="public" xPosition="1182.0" yPosition="373.0">
       <Fields>
         <Field name="FilmInfo" type="File" visibility="package"/>
         <Field name="filmId" type="int" visibility="private"/>
@@ -343,7 +343,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="FilmIO" package="cinema.IO" visibility="public" xPosition="1220.0" yPosition="420.0">
+    <Class name="FilmIO" package="cinema.IO" visibility="public" xPosition="1669.0" yPosition="193.0">
       <Fields>
         <Field name="FilmInfo" type="File" visibility="package"/>
       </Fields>
@@ -358,7 +358,7 @@
         <Method name="calfilmNum" returnType="int" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="LayoutIO" package="cinema.IO" visibility="public" xPosition="1520.0" yPosition="420.0">
+    <Class name="LayoutIO" package="cinema.IO" visibility="public" xPosition="529.0" yPosition="233.0">
       <Fields>
         <Field name="LayoutInfo" type="File" visibility="package"/>
       </Fields>
@@ -367,7 +367,7 @@
         <Method name="readLayoutFromFile" returnType="ArrayList&lt;Layout&gt;" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="ScreenIO" package="cinema.IO" visibility="public" xPosition="1820.0" yPosition="420.0">
+    <Class name="ScreenIO" package="cinema.IO" visibility="public" xPosition="2087.0" yPosition="1366.0">
       <Fields>
         <Field name="ScreenInfo" type="File" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -382,7 +382,7 @@
         <Method name="readScreenInfo" returnType="ArrayList&lt;Screen&gt;" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="TicketIO" package="cinema.IO" visibility="public" xPosition="2130.0" yPosition="654.0">
+    <Class name="TicketIO" package="cinema.IO" visibility="public" xPosition="1767.0" yPosition="711.0">
       <Fields>
         <Field name="TicketInfo" type="File" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -395,7 +395,7 @@
         <Method name="readTicketInfo" returnType="ArrayList&lt;Ticket&gt;" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Layout" package="cinema" visibility="public" xPosition="20.0" yPosition="820.0">
+    <Class name="Layout" package="cinema" visibility="public" xPosition="853.0" yPosition="123.0">
       <Fields>
         <Field name="LayoutId" type="int" visibility="private"/>
         <Field name="rowNum" type="int" visibility="private"/>
@@ -423,7 +423,7 @@
         <Method name="readLayoutFromFile" returnType="void" visibility="private"/>
       </Methods>
     </Class>
-    <Class name="Screen" package="cinema" visibility="public" xPosition="320.0" yPosition="820.0">
+    <Class name="Screen" package="cinema" visibility="public" xPosition="1322.0" yPosition="1481.0">
       <Fields>
         <Field name="screenArr" type="ArrayList&lt;Screen&gt;" visibility="package"/>
         <Field name="ScreenInfo" type="File" visibility="package"/>
@@ -504,14 +504,14 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Seat" package="cinema" visibility="public" xPosition="620.0" yPosition="820.0">
+    <Class name="Seat" package="cinema" visibility="public" xPosition="904.0" yPosition="624.0">
       <Fields>
         <Field name="takenFlag" type="boolean" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Ticket" package="cinema" visibility="public" xPosition="920.0" yPosition="820.0">
+    <Class name="Ticket" package="cinema" visibility="public" xPosition="1372.0" yPosition="996.0">
       <Fields>
         <Field name="TicketInfo" type="File" visibility="package"/>
         <Field name="ticketId" type="String" visibility="private"/>
@@ -543,7 +543,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="UserInterface" package="cinema" visibility="public" xPosition="1220.0" yPosition="820.0">
+    <Class name="UserInterface" package="cinema" visibility="public" xPosition="2868.0" yPosition="107.0">
       <Fields>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
       </Fields>
@@ -552,7 +552,7 @@
         <Method name="refund" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="ConfirmPanel" package="gui" visibility="public" xPosition="1520.0" yPosition="820.0">
+    <Class name="ConfirmPanel" package="gui" visibility="public" xPosition="194.0" yPosition="966.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -573,7 +573,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="FilmDetailPanel" package="gui" visibility="public" xPosition="1820.0" yPosition="820.0">
+    <Class name="FilmDetailPanel" package="gui" visibility="public" xPosition="255.0" yPosition="1586.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -589,7 +589,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="FilmListPanel" package="gui" visibility="public" xPosition="2120.0" yPosition="820.0">
+    <Class name="FilmListPanel" package="gui" visibility="public" xPosition="239.0" yPosition="1342.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="filmListLabel" type="JLabel" visibility="package"/>
@@ -601,7 +601,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="IdentityPanel" package="gui" visibility="public" xPosition="20.0" yPosition="1220.0">
+    <Class name="IdentityPanel" package="gui" visibility="public" xPosition="617.0" yPosition="391.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="identityLabel" type="JLabel" visibility="package"/>
@@ -613,7 +613,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="launchGUI" package="gui" visibility="public" xPosition="320.0" yPosition="1220.0">
+    <Class name="launchGUI" package="gui" visibility="public" xPosition="1398.0" yPosition="3637.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -622,7 +622,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="mainGUI" package="gui" visibility="public" xPosition="620.0" yPosition="1220.0">
+    <Class name="mainGUI" package="gui" visibility="public" xPosition="853.0" yPosition="846.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="mainPanel" type="Container" visibility="package"/>
@@ -660,7 +660,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ModelPanel" package="gui" visibility="public" xPosition="920.0" yPosition="1220.0">
+    <Class name="ModelPanel" package="gui" visibility="public" xPosition="1220.0" yPosition="3743.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
       </Fields>
@@ -669,7 +669,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="ScreenPanel" package="gui" visibility="public" xPosition="1220.0" yPosition="1220.0">
+    <Class name="ScreenPanel" package="gui" visibility="public" xPosition="796.0" yPosition="1882.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
@@ -687,7 +687,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="TicketTypePanel" package="gui" visibility="public" xPosition="1520.0" yPosition="1220.0">
+    <Class name="TicketTypePanel" package="gui" visibility="public" xPosition="491.0" yPosition="1872.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="ticketTypeLabel" type="JLabel" visibility="package"/>
@@ -707,7 +707,7 @@
         <Method name="returnTicketType" returnType="int" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="UserPanel" package="gui" visibility="public" xPosition="1820.0" yPosition="1220.0">
+    <Class name="UserPanel" package="gui" visibility="public" xPosition="285.0" yPosition="748.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="userLabel" type="JLabel" visibility="package"/>
@@ -719,7 +719,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="WelcomePanel" package="gui" visibility="public" xPosition="2120.0" yPosition="1220.0">
+    <Class name="WelcomePanel" package="gui" visibility="public" xPosition="347.0" yPosition="473.0">
       <Fields>
         <Field name="f" type="Font" visibility="package"/>
         <Field name="welcomeLabel" type="JLabel" visibility="package"/>
@@ -732,7 +732,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="QRGenerator" package="QR" visibility="public" xPosition="20.0" yPosition="1620.0">
+    <Class name="QRGenerator" package="QR" visibility="public" xPosition="52.0" yPosition="4098.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -742,7 +742,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Test" package="Test" visibility="public" xPosition="320.0" yPosition="1620.0">
+    <Class name="Test" package="Test" visibility="public" xPosition="637.0" yPosition="4051.0">
       <Fields>
         <Field name="Debug" type="boolean" visibility="public" isStatic="true"/>
       </Fields>
@@ -753,7 +753,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="FileIO" package="util" visibility="public" xPosition="620.0" yPosition="1620.0">
+    <Class name="FileIO" package="util" visibility="public" xPosition="577.0" yPosition="3857.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -768,35 +768,34 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation source="cinema.Ticket" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="filmList" source="gui.mainGUI" target="cinema.Film" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Film&gt;"/>
-    <UseRelation source="cinema.Ticket" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="ticketTypePanel" source="gui.mainGUI" target="gui.TicketTypePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.Film" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="userPanel" source="gui.mainGUI" target="gui.UserPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="missSeatSet" source="cinema.Layout" target="cinema.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Seat&gt;"/>
-    <UseRelation source="cinema.Control.FilmControl" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="welcomePanel" source="gui.mainGUI" target="gui.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.Control.LayoutControl" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="identityPanel" source="gui.mainGUI" target="gui.IdentityPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.Control.TicketControl" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.IO.TicketIO" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.Screen" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="screenPanel" source="gui.mainGUI" target="gui.ScreenPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="chosenScreen" source="gui.mainGUI" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="screen" source="gui.ScreenPanel" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="screenArr" source="cinema.Screen" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Screen&gt;"/>
-    <HasRelation name="chosenSeat" source="gui.mainGUI" target="cinema.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.IO.FilmIO" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="confirmPanel" source="gui.mainGUI" target="gui.ConfirmPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.Layout" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="cinema.IO.LayoutIO" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="filmDetailPanel" source="gui.mainGUI" target="gui.FilmDetailPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="cinema.Control.ScreenControl" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="userTicket" source="gui.mainGUI" target="cinema.Ticket" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userPanel" source="gui.mainGUI" target="gui.UserPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Ticket" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Ticket" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="cinema.Layout" target="cinema.Seat" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="layoutArr" source="cinema.Layout" target="cinema.Layout" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Layout&gt;"/>
-    <UseRelation source="cinema.IO.ScreenIO" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.FilmIO" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="chosenScreen" source="gui.mainGUI" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="filmList" source="gui.mainGUI" target="cinema.Film" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Film&gt;"/>
+    <HasRelation name="filmDetailPanel" source="gui.mainGUI" target="gui.FilmDetailPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="filmListPanel" source="gui.mainGUI" target="gui.FilmListPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="FilmListPanel"/>
+    <UseRelation source="cinema.Control.LayoutControl" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Screen" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.LayoutIO" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screen" source="gui.ScreenPanel" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.ScreenIO" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Control.TicketControl" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="identityPanel" source="gui.mainGUI" target="gui.IdentityPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="chosenSeat" source="gui.mainGUI" target="cinema.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="welcomePanel" source="gui.mainGUI" target="gui.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screenPanel" source="gui.mainGUI" target="gui.ScreenPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Film" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ticketTypePanel" source="gui.mainGUI" target="gui.TicketTypePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userTicket" source="gui.mainGUI" target="cinema.Ticket" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="confirmPanel" source="gui.mainGUI" target="gui.ConfirmPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Control.FilmControl" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Layout" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.TicketIO" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
