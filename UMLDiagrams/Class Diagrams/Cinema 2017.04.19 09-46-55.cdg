@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Cinema">
+  <ClassDiagramComponents>
+    <Class name="AdminInterface" package="cinema" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="AdminInfo" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="changePassword" returnType="void" visibility="public"/>
+        <Method name="login" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CinemaManagement" package="cinema" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+        <Method name="enterUser" returnType="void" visibility="public"/>
+        <Method name="enterAdmin" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FilmControl" package="cinema.Control" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addFilm" returnType="void" visibility="public">
+          <Argument type="Film" name="film"/>
+        </Method>
+        <Method name="deleteFilm" returnType="void" visibility="public">
+          <Argument type="Film" name="film"/>
+        </Method>
+        <Method name="getFilmByName" returnType="Film" visibility="public">
+          <Argument type="String" name="filmName"/>
+        </Method>
+        <Method name="listFilm" returnType="ArrayList&lt;Film&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LayoutControl" package="cinema.Control" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getLayoutById" returnType="Layout" visibility="public">
+          <Argument type="int" name="LayoutId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ScreenControl" package="cinema.Control" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="String" name="Date"/>
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="getTimeByFilm" returnType="ArrayList&lt;Date&gt;" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="getScreenByDate" returnType="Screen" visibility="public">
+          <Argument type="String" name="filmName"/>
+          <Argument type="String" name="date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TicketControl" package="cinema.Control" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="checkId" returnType="boolean" visibility="public">
+          <Argument type="String" name="randomID"/>
+        </Method>
+        <Method name="getRandomID" returnType="String" visibility="public"/>
+        <Method name="generateTicket" returnType="Ticket" visibility="public">
+          <Argument type="Screen" name="chosenScreen"/>
+          <Argument type="Seat" name="chosenSeat"/>
+          <Argument type="int" name="ticketType"/>
+        </Method>
+        <Method name="saveTicket" returnType="boolean" visibility="public">
+          <Argument type="Ticket" name="ticket"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Film" package="cinema.Entity" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="filmName" type="String" visibility="private"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="pictureSrc" type="String" visibility="private"/>
+        <Field name="filmIntro" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="filmName"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="String" name="pictureSrc"/>
+          <Argument type="String" name="filmIntro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="getfilmName" returnType="String" visibility="public"/>
+        <Method name="getTimeInterval" returnType="int" visibility="public"/>
+        <Method name="getPictureSrc" returnType="String" visibility="public"/>
+        <Method name="getFilmIntro" returnType="String" visibility="public"/>
+        <Method name="setFilmInfo" returnType="void" visibility="public">
+          <Argument type="File" name="filmInfo"/>
+        </Method>
+        <Method name="setFilmId" returnType="void" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="setFilmName" returnType="void" visibility="public">
+          <Argument type="String" name="filmName"/>
+        </Method>
+        <Method name="setTimeInterval" returnType="void" visibility="public">
+          <Argument type="int" name="timeInterval"/>
+        </Method>
+        <Method name="setPictureSrc" returnType="void" visibility="public">
+          <Argument type="String" name="pictureSrc"/>
+        </Method>
+        <Method name="setFilmIntro" returnType="void" visibility="public">
+          <Argument type="String" name="filmIntro"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Layout" package="cinema.Entity" visibility="public" xPosition="2149.0" yPosition="44.0">
+      <Fields>
+        <Field name="LayoutId" type="int" visibility="private"/>
+        <Field name="rowNum" type="int" visibility="private"/>
+        <Field name="colNum" type="int" visibility="private"/>
+        <Field name="missSeatSet" type="HashSet&lt;Seat&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getLayoutId" returnType="int" visibility="public"/>
+        <Method name="setLayoutId" returnType="void" visibility="public">
+          <Argument type="int" name="lyoutId"/>
+        </Method>
+        <Method name="getRowNum" returnType="int" visibility="public"/>
+        <Method name="setRowNum" returnType="void" visibility="public">
+          <Argument type="int" name="rowNum"/>
+        </Method>
+        <Method name="getColNum" returnType="int" visibility="public"/>
+        <Method name="setColNum" returnType="void" visibility="public">
+          <Argument type="int" name="colNum"/>
+        </Method>
+        <Method name="getMissSeatSet" returnType="HashSet&lt;Seat&gt;" visibility="public"/>
+        <Method name="setMissSeatSet" returnType="void" visibility="public">
+          <Argument type="HashSet&lt;Seat&gt;" name="missSeatSet"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Screen" package="cinema.Entity" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="screenArr" type="ArrayList&lt;Screen&gt;" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="screenId" type="int" visibility="private"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="leftTicketNum" type="int" visibility="private"/>
+        <Field name="totalSeatNum" type="int" visibility="private"/>
+        <Field name="layoutId" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="int" name="filmId"/>
+          <Argument type="String" name="stringDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="totalSeatNum"/>
+          <Argument type="int" name="layoutId"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="int" name="filmId"/>
+          <Argument type="String" name="stringDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="leftTicketNum"/>
+          <Argument type="int" name="totalSeatNum"/>
+          <Argument type="int" name="layoutId"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getScreenId" returnType="int" visibility="public"/>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="getTimeInterval" returnType="int" visibility="public"/>
+        <Method name="getLeftTicketNum" returnType="int" visibility="public"/>
+        <Method name="getTotalSeatNum" returnType="int" visibility="public"/>
+        <Method name="getLayoutId" returnType="int" visibility="public"/>
+        <Method name="setScreenId" returnType="void" visibility="public">
+          <Argument type="int" name="screenId"/>
+        </Method>
+        <Method name="setFilmId" returnType="void" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="setTimeInterval" returnType="void" visibility="public">
+          <Argument type="int" name="timeInterval"/>
+        </Method>
+        <Method name="setLeftTicketNum" returnType="void" visibility="public">
+          <Argument type="int" name="leftTicketNum"/>
+        </Method>
+        <Method name="setTotalSeatNum" returnType="void" visibility="public">
+          <Argument type="int" name="totalSeatNum"/>
+        </Method>
+        <Method name="setLayoutId" returnType="void" visibility="public">
+          <Argument type="int" name="layoutId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Seat" package="cinema.Entity" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="takenFlag" type="boolean" visibility="private"/>
+        <Field name="colNum" type="int" visibility="private"/>
+        <Field name="rowNum" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="takenFlag"/>
+          <Argument type="int" name="rowNum"/>
+          <Argument type="int" name="colNum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isTakenFlag" returnType="boolean" visibility="public"/>
+        <Method name="setTakenFlag" returnType="void" visibility="public">
+          <Argument type="boolean" name="takenFlag"/>
+        </Method>
+        <Method name="getColNum" returnType="int" visibility="public"/>
+        <Method name="setColNum" returnType="void" visibility="public">
+          <Argument type="int" name="colNum"/>
+        </Method>
+        <Method name="getRowNum" returnType="int" visibility="public"/>
+        <Method name="setRowNum" returnType="void" visibility="public">
+          <Argument type="int" name="rowNum"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ticket" package="cinema.Entity" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="ticketId" type="String" visibility="private"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="screenId" type="int" visibility="private"/>
+        <Field name="seat" type="int[]" visibility="private"/>
+        <Field name="ticketType" type="int" visibility="private"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="filmId"/>
+          <Argument type="Date" name="passedDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="screenId"/>
+          <Argument type="int[]" name="seat"/>
+          <Argument type="int" name="ticketType"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTicketId" returnType="String" visibility="public"/>
+        <Method name="setTicketId" returnType="void" visibility="public">
+          <Argument type="String" name="ticketId"/>
+        </Method>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="setFilmId" returnType="void" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="getTimeInterval" returnType="int" visibility="public"/>
+        <Method name="setTimeInterval" returnType="void" visibility="public">
+          <Argument type="int" name="timeInterval"/>
+        </Method>
+        <Method name="getScreenId" returnType="int" visibility="public"/>
+        <Method name="setScreenId" returnType="void" visibility="public">
+          <Argument type="int" name="screenId"/>
+        </Method>
+        <Method name="getSeat" returnType="int[]" visibility="public"/>
+        <Method name="setSeat" returnType="void" visibility="public">
+          <Argument type="int[]" name="seat"/>
+        </Method>
+        <Method name="getTicketType" returnType="int" visibility="public"/>
+        <Method name="setTicketType" returnType="void" visibility="public">
+          <Argument type="int" name="ticketType"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getFilm" returnType="Film" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Film" package="cinema" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="FilmInfo" type="File" visibility="package"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="filmName" type="String" visibility="private"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="pictureSrc" type="String" visibility="private"/>
+        <Field name="filmIntro" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="filmName"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="String" name="pictureSrc"/>
+          <Argument type="String" name="filmIntro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="getfilmName" returnType="String" visibility="public"/>
+        <Method name="getTimeInterval" returnType="int" visibility="public"/>
+        <Method name="getPictureSrc" returnType="String" visibility="public"/>
+        <Method name="getFilmIntro" returnType="String" visibility="public"/>
+        <Method name="calfilmNum" returnType="int" visibility="public"/>
+        <Method name="writeFilmInfo" returnType="void" visibility="public">
+          <Argument type="Film" name="film"/>
+        </Method>
+        <Method name="readFilmInfo" returnType="Film" visibility="public">
+          <Argument type="String" name="param"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FilmIO" package="cinema.IO" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="FilmInfo" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="readFilmInfo" returnType="Film" visibility="public">
+          <Argument type="String" name="param"/>
+        </Method>
+        <Method name="writeFilmInfo" returnType="void" visibility="public">
+          <Argument type="Film" name="film"/>
+        </Method>
+        <Method name="calfilmNum" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LayoutIO" package="cinema.IO" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="LayoutInfo" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="readLayoutFromFile" returnType="ArrayList&lt;Layout&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ScreenIO" package="cinema.IO" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="ScreenInfo" type="File" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calScreenNum" returnType="int" visibility="public"/>
+        <Method name="writeScreenInfo" returnType="void" visibility="public">
+          <Argument type="Screen" name="screen"/>
+          <Argument type="boolean" name="appendFlag"/>
+        </Method>
+        <Method name="readScreenInfo" returnType="ArrayList&lt;Screen&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TicketIO" package="cinema.IO" visibility="public" xPosition="2130.0" yPosition="654.0">
+      <Fields>
+        <Field name="TicketInfo" type="File" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="writeTicketInfo" returnType="boolean" visibility="public">
+          <Argument type="Ticket" name="ticket"/>
+        </Method>
+        <Method name="readTicketInfo" returnType="ArrayList&lt;Ticket&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Layout" package="cinema" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="LayoutId" type="int" visibility="private"/>
+        <Field name="rowNum" type="int" visibility="private"/>
+        <Field name="colNum" type="int" visibility="private"/>
+        <Field name="layoutArr" type="ArrayList&lt;Layout&gt;" visibility="package"/>
+        <Field name="LayoutInfo" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getLayoutId" returnType="int" visibility="public"/>
+        <Method name="setLayoutId" returnType="void" visibility="public">
+          <Argument type="int" name="lyoutId"/>
+        </Method>
+        <Method name="getRowNum" returnType="int" visibility="public"/>
+        <Method name="setRowNum" returnType="void" visibility="public">
+          <Argument type="int" name="rowNum"/>
+        </Method>
+        <Method name="getColNum" returnType="int" visibility="public"/>
+        <Method name="setColNum" returnType="void" visibility="public">
+          <Argument type="int" name="colNum"/>
+        </Method>
+        <Method name="getLayoutById" returnType="Layout" visibility="public">
+          <Argument type="int" name="LayoutId"/>
+        </Method>
+        <Method name="readLayoutFromFile" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Screen" package="cinema" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="screenArr" type="ArrayList&lt;Screen&gt;" visibility="package"/>
+        <Field name="ScreenInfo" type="File" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="screenId" type="int" visibility="private"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="leftTicketNum" type="int" visibility="private"/>
+        <Field name="totalSeatNum" type="int" visibility="private"/>
+        <Field name="layoutId" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="int" name="filmId"/>
+          <Argument type="String" name="stringDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="totalSeatNum"/>
+          <Argument type="int" name="layoutId"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="int" name="filmId"/>
+          <Argument type="String" name="stringDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="leftTicketNum"/>
+          <Argument type="int" name="totalSeatNum"/>
+          <Argument type="int" name="layoutId"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getScreenId" returnType="int" visibility="public"/>
+        <Method name="getFilmId" returnType="int" visibility="public"/>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="getTimeInterval" returnType="int" visibility="public"/>
+        <Method name="getLeftTicketNum" returnType="int" visibility="public"/>
+        <Method name="getTotalSeatNum" returnType="int" visibility="public"/>
+        <Method name="getLayoutId" returnType="int" visibility="public"/>
+        <Method name="setScreenId" returnType="void" visibility="public">
+          <Argument type="int" name="screenId"/>
+        </Method>
+        <Method name="setFilmId" returnType="void" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="setTimeInterval" returnType="void" visibility="public">
+          <Argument type="int" name="timeInterval"/>
+        </Method>
+        <Method name="setLeftTicketNum" returnType="void" visibility="public">
+          <Argument type="int" name="leftTicketNum"/>
+        </Method>
+        <Method name="setTotalSeatNum" returnType="void" visibility="public">
+          <Argument type="int" name="totalSeatNum"/>
+        </Method>
+        <Method name="setLayoutId" returnType="void" visibility="public">
+          <Argument type="int" name="layoutId"/>
+        </Method>
+        <Method name="writeScreenInfo" returnType="void" visibility="public">
+          <Argument type="Screen" name="screen"/>
+          <Argument type="boolean" name="appendFlag"/>
+        </Method>
+        <Method name="calScreenNum" returnType="int" visibility="public"/>
+        <Method name="readIntoArray" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="int" name="screenId"/>
+          <Argument type="String" name="Date"/>
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="getTimeByFilm" returnType="ArrayList&lt;Date&gt;" visibility="public">
+          <Argument type="int" name="filmId"/>
+        </Method>
+        <Method name="getScreenByDate" returnType="Screen" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Seat" package="cinema" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="takenFlag" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ticket" package="cinema" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="TicketInfo" type="File" visibility="package"/>
+        <Field name="ticketId" type="String" visibility="private"/>
+        <Field name="filmId" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="timeInterval" type="int" visibility="private"/>
+        <Field name="screenId" type="int" visibility="private"/>
+        <Field name="seat" type="int[]" visibility="private"/>
+        <Field name="ticketType" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="filmId"/>
+          <Argument type="Date" name="passedDate"/>
+          <Argument type="int" name="timeInterval"/>
+          <Argument type="int" name="screenId"/>
+          <Argument type="int[]" name="seat"/>
+          <Argument type="int" name="ticketType"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="checkId" returnType="boolean" visibility="public">
+          <Argument type="String" name="randomID"/>
+        </Method>
+        <Method name="writeTicketInfo" returnType="void" visibility="public">
+          <Argument type="Ticket" name="ticket"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserInterface" package="cinema" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="refund" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConfirmPanel" package="gui" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="confirmLabel" type="JLabel" visibility="package"/>
+        <Field name="filmNameLabel" type="JLabel" visibility="package"/>
+        <Field name="timeLabel" type="JLabel" visibility="package"/>
+        <Field name="screenLabel" type="JLabel" visibility="package"/>
+        <Field name="seatLabel" type="JLabel" visibility="package"/>
+        <Field name="typeLabel" type="JLabel" visibility="package"/>
+        <Field name="ticketLabel" type="JLabel" visibility="package"/>
+        <Field name="confirmButton" type="JButton" visibility="package"/>
+        <Field name="ticketInfoPanel" type="JPanel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Ticket" name="ticket"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="FilmDetailPanel" package="gui" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="filmNameLabel" type="JLabel" visibility="package"/>
+        <Field name="filmIntro" type="JLabel" visibility="package"/>
+        <Field name="filmDateButton" type="JButton" visibility="package"/>
+        <Field name="filmButtonPanel" type="JPanel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="filmName"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="FilmListPanel" package="gui" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="filmListLabel" type="JLabel" visibility="package"/>
+        <Field name="filmListButton" type="JButton" visibility="package"/>
+        <Field name="filmListButtonPanel" type="JPanel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="IdentityPanel" package="gui" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="identityLabel" type="JLabel" visibility="package"/>
+        <Field name="identityButton1" type="JButton" visibility="package"/>
+        <Field name="identityButton2" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="launchGUI" package="gui" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="mainGUI" package="gui" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="mainPanel" type="Container" visibility="package"/>
+        <Field name="welcomePanel" type="WelcomePanel" visibility="package"/>
+        <Field name="identityPanel" type="IdentityPanel" visibility="package"/>
+        <Field name="userPanel" type="UserPanel" visibility="package"/>
+        <Field name="filmListPanel" type="FilmListPanel" visibility="package"/>
+        <Field name="filmDetailPanel" type="FilmDetailPanel" visibility="package"/>
+        <Field name="screenPanel" type="ScreenPanel" visibility="package"/>
+        <Field name="ticketTypePanel" type="TicketTypePanel" visibility="package"/>
+        <Field name="confirmPanel" type="ConfirmPanel" visibility="package"/>
+        <Field name="filmListButtonPanel" type="JPanel" visibility="package"/>
+        <Field name="filmButton" type="JButton" visibility="package"/>
+        <Field name="dateButton" type="JButton" visibility="package"/>
+        <Field name="seatButton" type="JButton" visibility="package"/>
+        <Field name="filmList" type="ArrayList&lt;Film&gt;" visibility="package"/>
+        <Field name="filmNum" type="int" visibility="package"/>
+        <Field name="chosenFilmName" type="String" visibility="package"/>
+        <Field name="chosenSeat" type="Seat" visibility="package"/>
+        <Field name="chosenScreen" type="Screen" visibility="package"/>
+        <Field name="chosenTicketType" type="int" visibility="package"/>
+        <Field name="userTicket" type="Ticket" visibility="package"/>
+        <Field name="filmActionListener" type="ActionListener" visibility="package"/>
+        <Field name="dateActionListener" type="ActionListener" visibility="package"/>
+        <Field name="seatActionListener" type="ActionListener" visibility="package"/>
+        <Field name="ticketTypeActionListener" type="ActionListener" visibility="package"/>
+        <Field name="confirmActionListener" type="ActionListener" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ModelPanel" package="gui" visibility="public" xPosition="920.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ScreenPanel" package="gui" visibility="public" xPosition="1220.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="sdf" type="SimpleDateFormat" visibility="package"/>
+        <Field name="screen" type="Screen" visibility="package"/>
+        <Field name="filmNameLabel" type="JLabel" visibility="package"/>
+        <Field name="screenIdLabel" type="JLabel" visibility="package"/>
+        <Field name="seatButton" type="JButton" visibility="package"/>
+        <Field name="seatPanel" type="JPanel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="filmName"/>
+          <Argument type="String" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="TicketTypePanel" package="gui" visibility="public" xPosition="1520.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="ticketTypeLabel" type="JLabel" visibility="package"/>
+        <Field name="normalButton" type="JRadioButton" visibility="package"/>
+        <Field name="studentButton" type="JRadioButton" visibility="package"/>
+        <Field name="childButton" type="JRadioButton" visibility="package"/>
+        <Field name="typeButtonGroup" type="ButtonGroup" visibility="package"/>
+        <Field name="submitButton" type="JButton" visibility="package"/>
+        <Field name="textArea" type="JTextArea" visibility="package"/>
+        <Field name="radioButtonPanel" type="JPanel" visibility="package"/>
+        <Field name="textAreaPanel" type="JPanel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="returnTicketType" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserPanel" package="gui" visibility="public" xPosition="1820.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="userLabel" type="JLabel" visibility="package"/>
+        <Field name="userButton1" type="JButton" visibility="package"/>
+        <Field name="userButton2" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="WelcomePanel" package="gui" visibility="public" xPosition="2120.0" yPosition="1220.0">
+      <Fields>
+        <Field name="f" type="Font" visibility="package"/>
+        <Field name="welcomeLabel" type="JLabel" visibility="package"/>
+        <Field name="welcomePicLabel" type="JLabel" visibility="package"/>
+        <Field name="welcomeButton" type="JButton" visibility="package"/>
+        <Field name="image" type="ImageIcon" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="QRGenerator" package="QR" visibility="public" xPosition="20.0" yPosition="1620.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="generateQR" returnType="void" visibility="public">
+          <Argument type="String" name="content"/>
+          <Argument type="String" name="imgPath"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Test" package="Test" visibility="public" xPosition="320.0" yPosition="1620.0">
+      <Fields>
+        <Field name="Debug" type="boolean" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FileIO" package="util" visibility="public" xPosition="620.0" yPosition="1620.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="readFile" returnType="void" visibility="public" isStatic="true">
+          <Argument type="File" name="file"/>
+        </Method>
+        <Method name="writeFile" returnType="void" visibility="public" isStatic="true">
+          <Argument type="File" name="file"/>
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="cinema.Ticket" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="filmList" source="gui.mainGUI" target="cinema.Film" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Film&gt;"/>
+    <UseRelation source="cinema.Ticket" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ticketTypePanel" source="gui.mainGUI" target="gui.TicketTypePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Film" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userPanel" source="gui.mainGUI" target="gui.UserPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="missSeatSet" source="cinema.Layout" target="cinema.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Seat&gt;"/>
+    <UseRelation source="cinema.Control.FilmControl" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="welcomePanel" source="gui.mainGUI" target="gui.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Control.LayoutControl" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="identityPanel" source="gui.mainGUI" target="gui.IdentityPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Control.TicketControl" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.TicketIO" target="cinema.Ticket" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Screen" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screenPanel" source="gui.mainGUI" target="gui.ScreenPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="chosenScreen" source="gui.mainGUI" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screen" source="gui.ScreenPanel" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screenArr" source="cinema.Screen" target="cinema.Screen" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Screen&gt;"/>
+    <HasRelation name="chosenSeat" source="gui.mainGUI" target="cinema.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.FilmIO" target="cinema.Film" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="confirmPanel" source="gui.mainGUI" target="gui.ConfirmPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Layout" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.IO.LayoutIO" target="cinema.Layout" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="filmDetailPanel" source="gui.mainGUI" target="gui.FilmDetailPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Control.ScreenControl" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userTicket" source="gui.mainGUI" target="cinema.Ticket" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="cinema.Layout" target="cinema.Seat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="layoutArr" source="cinema.Layout" target="cinema.Layout" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Layout&gt;"/>
+    <UseRelation source="cinema.IO.ScreenIO" target="cinema.Screen" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="filmListPanel" source="gui.mainGUI" target="gui.FilmListPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="FilmListPanel"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
