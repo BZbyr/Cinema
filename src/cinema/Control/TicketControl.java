@@ -1,6 +1,6 @@
 package cinema.Control;
 
-import QR.QRGenerator;
+
 import cinema.Entity.Film;
 import cinema.Entity.Screen;
 import cinema.Entity.Seat;
@@ -72,8 +72,7 @@ public class TicketControl {
 
         String str = ticket.getTicketId();
         Film film = ticket.getFilm();
-        (new QRGenerator()).generateQR(""+film.getfilmName()+"\n Screen "+ticket.getScreenId()+
-                "Seat: "+Arrays.toString(ticket.getSeat()),"src/pic/"+str+".png");
+        
         return flag;
 
     }

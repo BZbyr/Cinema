@@ -8,7 +8,6 @@ import cinema.Entity.Screen;
 import cinema.Entity.Seat;
 import cinema.Entity.Ticket;
 import cinema.IO.FilmIO;
-import cinema.UserInterface;
 
 import javax.swing.*;
 import java.awt.*;
