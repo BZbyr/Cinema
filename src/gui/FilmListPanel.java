@@ -20,11 +20,9 @@ public class FilmListPanel extends JPanel{
 
     //JButton
     JButton filmListButton[];
-
     JPanel filmListButtonPanel = new JPanel();
 
     public FilmListPanel(){
-
         super();
         this.setLayout(new BorderLayout());
         FilmControl fc = new FilmControl();
@@ -33,10 +31,8 @@ public class FilmListPanel extends JPanel{
 
         for(int i = 0; i < filmList.size() ; i++){
             JButton tempButton = new JButton(""+filmList.get(i).getfilmName());
-
             filmListButton[i] = tempButton;
-            filmListButton[i].setPreferredSize(new Dimension(100,200));
-
+            filmListButton[i].setPreferredSize(new Dimension(200,100));
             filmListButtonPanel.add(filmListButton[i]);
         }
 

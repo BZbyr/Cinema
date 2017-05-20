@@ -1,9 +1,11 @@
 package cinema.Control;
 
 import Test.Test;
+import cinema.Entity.Layout;
 import cinema.Entity.Screen;
 import cinema.IO.FilmIO;
 import cinema.IO.ScreenIO;
+import gui.ScreenPanel;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -73,4 +75,5 @@ public class ScreenControl {
         }
         return tempScreen;
     }
+
 }

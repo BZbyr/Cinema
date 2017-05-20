@@ -1,0 +1,12 @@
+----------------------------------------------------
+               SELLING      REPORT                  
+
+Sale of MovieBeast&Beauty: 4
+Sale of MovieX-MEN: 0
+
+----------------------------------------------------
+Type NormalSales for : 4
+Type StudentSales for : 0
+Type ChildSales for : 0
+----------------------------------------------------
+SUM OF SELLING:                               64.0

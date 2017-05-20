@@ -22,8 +22,8 @@ public class IdentityPanel extends JPanel{
         //identity panel
         JPanel identityButtonPanel = new JPanel();
         identityButtonPanel.setLayout(new FlowLayout());
-        identityButton1.setPreferredSize(new Dimension(100,200));
-        identityButton2.setPreferredSize(new Dimension(100,200));
+        identityButton1.setPreferredSize(new Dimension(200,100));
+        identityButton2.setPreferredSize(new Dimension(200,100));
 
         identityButtonPanel.add(identityButton1);
         identityButtonPanel.add(identityButton2);

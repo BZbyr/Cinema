@@ -5,6 +5,7 @@ import cinema.Entity.Ticket;
 import javax.swing.*;
 import java.awt.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * Created by wangchao on 2017/4/17 0017.
@@ -22,12 +23,11 @@ public class ConfirmPanel extends JPanel{
     JLabel screenLabel = new JLabel("",JLabel.CENTER);
     JLabel seatLabel = new JLabel("",JLabel.CENTER);
     JLabel typeLabel = new JLabel("",JLabel.CENTER);
-    JLabel ticketLabel = new JLabel("",JLabel.CENTER);
     //JButton
     JButton confirmButton = new JButton("Confirm");
     //JPanel
     JPanel ticketInfoPanel = new JPanel(new FlowLayout());
-    public ConfirmPanel(Ticket ticket){
+    public ConfirmPanel(ArrayList<Ticket> ticketArrayList){
         super();
         this.setLayout(new BorderLayout());
         /*filmNameLabel.setText(ticket.getFilm().getfilmName());
@@ -40,14 +40,13 @@ public class ConfirmPanel extends JPanel{
         TicketInfoPanel.add(seatLabel);
         TicketInfoPanel.add(typeLabel);
         */
-        ticketLabel.setText(ticket.toString());
-        ticketInfoPanel.add(ticketLabel);
+        for(int i = 0 ;i<ticketArrayList.size();i++){
+            JLabel ticketLabel = new JLabel(ticketArrayList.get(i).toString());
+            ticketInfoPanel.add(ticketLabel);
+        }
         confirmLabel.setFont(f);
         this.add(confirmLabel,BorderLayout.NORTH);
         this.add(ticketInfoPanel,BorderLayout.CENTER);
         this.add(confirmButton,BorderLayout.SOUTH);
-
-
-
     }
 }

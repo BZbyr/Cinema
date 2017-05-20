@@ -24,8 +24,8 @@ public class UserPanel extends JPanel{
         //user panel
         JPanel userButtonPanel = new JPanel();
         userButtonPanel.setLayout(new FlowLayout());
-        userButton1.setPreferredSize(new Dimension(100,200));
-        userButton2.setPreferredSize(new Dimension(100,200));
+        userButton1.setPreferredSize(new Dimension(200,100));
+        userButton2.setPreferredSize(new Dimension(200,100));
 
         userButtonPanel.add(userButton1);
         userButtonPanel.add(userButton2);

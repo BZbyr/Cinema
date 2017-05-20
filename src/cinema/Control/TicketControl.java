@@ -11,6 +11,7 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 /**
@@ -74,6 +75,19 @@ public class TicketControl {
         Film film = ticket.getFilm();
         
         return flag;
-
+    }
+    public HashSet<Seat> getTakenSeat(int screenID){
+        HashSet<Seat> seatHashSet = new HashSet<Seat>();
+        TicketIO ti = new TicketIO();
+        ArrayList<Ticket> ticketArrayList = ti.readTicketInfo();
+        //将已有Ticket的座位取出来
+        for(int i = 0; i< ticketArrayList.size();i++){
+            if(ticketArrayList.get(i).getScreenId()==screenID) {
+                int seatInt[] = ticketArrayList.get(i).getSeat();
+                Seat tempSeat = new Seat(false, seatInt[0], seatInt[1]);
+                seatHashSet.add(tempSeat);
+            }
+        }
+        return seatHashSet;
     }
 }

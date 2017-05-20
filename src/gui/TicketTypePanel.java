@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
@@ -17,7 +18,7 @@ public class TicketTypePanel extends JPanel{
     Font f = new Font("Arial",Font.PLAIN, 30);
 
     //JLabel
-    JLabel ticketTypeLabel = new JLabel("Please choose type of your ticket: ",JLabel.CENTER);
+    JLabel ticketTypeLabel ;
     //JButton
     JRadioButton normalButton = new JRadioButton("Normal",true);
     JRadioButton studentButton = new JRadioButton("Student");
@@ -29,9 +30,12 @@ public class TicketTypePanel extends JPanel{
     JPanel radioButtonPanel = new JPanel(new FlowLayout());
     JPanel textAreaPanel = new JPanel(new FlowLayout());
 
+    //TicketTypeResult ArrayList
+    ArrayList<Integer> ticketTypeArr = new ArrayList<Integer>();
 
-    public TicketTypePanel(){
+    public TicketTypePanel(int num){
         super();
+        ticketTypeLabel= new JLabel("Please choose type of your "+num+" ticket: ",JLabel.CENTER);
         this.setLayout(new BorderLayout());
         //ButtonGroup中按钮互斥，不需要放入panel中
         typeButtonGroup.add(normalButton);
@@ -49,6 +53,7 @@ public class TicketTypePanel extends JPanel{
         normalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                textArea.setVisible(false);
                 textAreaPanel.removeAll();
                 textAreaPanel.add(submitButton);
                 textAreaPanel.validate();

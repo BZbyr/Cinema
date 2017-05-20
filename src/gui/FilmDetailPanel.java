@@ -24,10 +24,12 @@ public class FilmDetailPanel extends JPanel{
     //JLabel
     JLabel filmNameLabel = new JLabel();
     JLabel filmIntro = new JLabel();
+    JLabel imageLabel;
     //JButton
     JButton filmDateButton[];
     //JPanel
     JPanel filmButtonPanel = new JPanel();
+    JPanel filmInfoPanel = new JPanel();
     public FilmDetailPanel(String filmName){
         super();
         this.setLayout(new BorderLayout());
@@ -40,6 +42,8 @@ public class FilmDetailPanel extends JPanel{
         filmNameLabel.setText(film.getfilmName());
         filmNameLabel.setHorizontalAlignment(JLabel.CENTER);
         filmNameLabel.setFont(f);
+        ImageIcon image = new ImageIcon(film.getPictureSrc());
+        imageLabel = new JLabel(image);
         filmIntro.setText("Brief Intro: "+film.getFilmIntro()+"\n" + "Time last:"+film.getTimeInterval());
         filmIntro.setHorizontalAlignment(JLabel.CENTER);
         filmIntro.setFont(f);
@@ -57,9 +61,12 @@ public class FilmDetailPanel extends JPanel{
             filmDateButton[i] = new JButton(sdf.format(dateArr.get(i)));
             filmButtonPanel.add(filmDateButton[i]);
         }
+        filmInfoPanel.setLayout(new FlowLayout());
+        filmInfoPanel.add(filmIntro);
+        filmInfoPanel.add(imageLabel);
 
         this.add(filmNameLabel,BorderLayout.NORTH);
-        this.add(filmIntro,BorderLayout.CENTER);
+        this.add(filmInfoPanel,BorderLayout.CENTER);
         this.add(filmButtonPanel,BorderLayout.SOUTH);
 
 
