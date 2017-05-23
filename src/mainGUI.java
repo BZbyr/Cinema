@@ -26,7 +26,7 @@ public class mainGUI extends JFrame implements ActionListener{
     UserPanel userPanel = new UserPanel();
     FilmListPanel filmListPanel = new FilmListPanel() ;
     AdminPanel adminPanel = new AdminPanel();
-
+    AdminLoginPanel adminLoginPanel;
     FilmDetailPanel filmDetailPanel;
     ScreenPanel screenPanel;
     TicketTypePanel ticketTypePanel;
@@ -277,7 +277,7 @@ public class mainGUI extends JFrame implements ActionListener{
                 mainPanel.setVisible(true);
             }
         });
-
+        /*
         //Dialog for the login of Admin
         Dialog  adminLogin= new Dialog( this,"Dialog", true);
         adminLogin.setLayout(new BorderLayout());
@@ -301,13 +301,42 @@ public class mainGUI extends JFrame implements ActionListener{
             }
         });
 
-
+        */
         identityButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                adminLogin.setVisible(true);
+
+               // adminLogin.setVisible(true);
+                adminLoginPanel= new AdminLoginPanel();
+                adminLoginPanel.b.addActionListener(new ActionListener()
+                {
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        String AdminUsername = adminLoginPanel.f1.getText();
+                        String AdminPassword = adminLoginPanel.f2.getText();
+                        AdminControl ac = new AdminControl();
+                        boolean success = ac.login(AdminUsername,AdminPassword);
+                        if(success){
+                            mainPanel.removeAll();
+                            mainPanel.add(adminPanel);
+                            mainPanel.validate();
+                            mainPanel.setVisible(false);
+                            mainPanel.setVisible(true);
+                            adminLoginPanel.dispose();
+                        }else{
+                            adminLoginPanel.l.setText("Wrong username or password, Enter again: ");
+
+                            mainPanel.setVisible(false);
+                            mainPanel.setVisible(true);
+                        }
+
+                    }
+                });
+
             }
         });
+
+/*
         submitLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -331,7 +360,7 @@ public class mainGUI extends JFrame implements ActionListener{
                 }
             }
         });
-
+*/
         //Dialog for report
         JButton reportButton = adminPanel.adminChoice;
         JButton closeDialog = new JButton("OK");

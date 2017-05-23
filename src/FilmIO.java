@@ -39,7 +39,7 @@ public class FilmIO {
                     returnFilm.setFilmIntro(lineElement[4]);
                 }
             }
-            System.out.println("Finnaly : "+returnFilm.getFilmId());
+//            System.out.println("Finnaly : "+returnFilm.getFilmId());
         } catch (IOException e) {
             e.printStackTrace();
         }

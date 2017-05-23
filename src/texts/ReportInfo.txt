@@ -1,12 +1,12 @@
 ----------------------------------------------------
                SELLING      REPORT                  
 
-Sale of MovieBeast&Beauty: 4
-Sale of MovieX-MEN: 0
+Sale of Movie KONG: 4
+Sale of Movie LOGAN: 0
 
 ----------------------------------------------------
-Type NormalSales for : 4
+Type NormalSales for : 11
 Type StudentSales for : 0
 Type ChildSales for : 0
 ----------------------------------------------------
-SUM OF SELLING:                               64.0
+SUM OF SELLING:                               176.0

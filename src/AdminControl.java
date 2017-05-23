@@ -13,6 +13,8 @@ public class AdminControl {
         inputAdmin.setPassword(password);
         boolean flag = false;
         for(Admin admin:adminArrayList){
+//            System.out.println("adminUsername"+inputAdmin.getUsername());
+//            System.out.println("adminPW "+ inputAdmin.getPassword());
             if(admin.equals(inputAdmin)){
                 flag = true;
                 break;
