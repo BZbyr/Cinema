@@ -1,23 +1,11 @@
 package gui;
 
-import cinema.Control.LayoutControl;
-import cinema.Control.ScreenControl;
-import cinema.Control.TicketControl;
-import cinema.Control.Utility;
-import cinema.Entity.Film;
-import cinema.Entity.Layout;
-import cinema.Entity.Screen;
-import cinema.Entity.Seat;
-import cinema.IO.FilmIO;
-import cinema.IO.LayoutIO;
-
+import cinema.*;
 import javax.swing.*;
 import java.awt.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Objects;
 
 /**
  * Created by wangchao on 2017/4/17 0017.
@@ -35,6 +23,7 @@ public class ScreenPanel extends JPanel{
     //JButton
     JButton  seatButton[][];
     JButton submitButton;
+    JButton screenReturnButton;
     //JPanel
     JPanel seatPanel ;
     JPanel submitPanel;
@@ -54,12 +43,18 @@ public class ScreenPanel extends JPanel{
         FilmIO fi = new FilmIO();
         Film film = fi.readFilmInfo(filmName);
         ScreenControl sc = new ScreenControl();
+        System.out.println("film:"+film.getfilmName());
+        System.out.println("date:"+date);
         screen = sc.getScreenByDate(film.getfilmName(),date);
         screenIdLabel = new JLabel("NO. "+screen.getScreenId()+"Date: "+date,JLabel.CENTER);
 
         screenIdLabel.setFont(f);
         LayoutControl lc = new LayoutControl();
         TicketControl tc = new TicketControl();
+        System.out.println("screen.getLayoutID: "+screen.getLayoutId());
+        System.out.println("screen.getScreenID: "+screen.getScreenId());
+        System.out.println("screen.getFilmID: "+screen.getFilmId());
+
         Layout layout = lc.getLayoutById(screen.getLayoutId());
 
         seatHashSet = layout.getMissSeatSet();
@@ -69,7 +64,7 @@ public class ScreenPanel extends JPanel{
         rowNum = layout.getRowNum();
 
         seatButton = new JButton[rowNum][colNum];
-        seatPanel= new JPanel(new GridLayout(rowNum,colNum));
+        seatPanel= new JPanel(new GridLayout(rowNum,colNum,80,50));
         for(int rowCount = 0; rowCount < rowNum; rowCount++){
             int countNotExist = 0;
 
@@ -93,10 +88,12 @@ public class ScreenPanel extends JPanel{
             }
         }
         JLabel screenLable = new JLabel("Screen",JLabel.CENTER);
-        submitPanel = new JPanel(new FlowLayout());
+        screenReturnButton = new JButton("Return");
+        submitPanel = new JPanel(new BorderLayout());
         submitButton = new JButton("submit");
-        submitPanel.add(screenLable);
-        submitPanel.add(submitButton);
+        submitPanel.add(screenLable,BorderLayout.NORTH);
+        submitPanel.add(submitButton,BorderLayout.EAST);
+        submitPanel.add(screenReturnButton,BorderLayout.WEST);
         this.add(filmNameLabel,BorderLayout.NORTH);
         this.add(screenIdLabel,BorderLayout.NORTH);
         this.add(seatPanel,BorderLayout.CENTER);

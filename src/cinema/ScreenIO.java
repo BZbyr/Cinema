@@ -1,7 +1,5 @@
 package cinema;
 
-import Test.Test;
-import cinema.Screen;
 
 import java.io.*;
 import java.text.ParseException;
@@ -13,9 +11,6 @@ import java.util.ArrayList;
  */
 public class ScreenIO {
     File ScreenInfo = new File("src/texts/ScreenInfo.txt");
-    //format of date
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH");
-
     //return numbers of screen
     public int calScreenNum() {
         BufferedReader br = null;
@@ -36,11 +31,12 @@ public class ScreenIO {
 
     public void writeScreenInfo(Screen screen, boolean appendFlag) {
         BufferedWriter bw = null;
-        String line = "" + screen.getScreenId() + "$" + screen.getFilmId() + "$" + sdf.format(screen.getDate()) + "$" + screen.getTimeInterval() + "$"
+        String line = "" + screen.getScreenId() + "$" + screen.getFilmId() + "$" + Utility.sdf.format(screen.getDate()) + "$" + screen.getTimeInterval() + "$"
                 + screen.getLeftTicketNum() + "$" + screen.getTotalSeatNum() + "$" + screen.getLayoutId();
         //debug
-        if (Test.Debug)
+       /* if (Test.Debug)
             System.out.println(line);
+        */
         try {
             //追加写 append: true
             bw = new BufferedWriter(new FileWriter(ScreenInfo, appendFlag));
@@ -70,7 +66,7 @@ public class ScreenIO {
                 Screen tempScreen = new Screen();
                 tempScreen.setScreenId(Integer.parseInt(lineElement[0]));
                 tempScreen.setFilmId(Integer.parseInt(lineElement[1]));
-                tempScreen.setDate(sdf.parse(lineElement[2]));
+                tempScreen.setDate(Utility.sdf.parse(lineElement[2]));
                 tempScreen.setTimeInterval(Integer.parseInt(lineElement[3]));
                 tempScreen.setLeftTicketNum(Integer.parseInt(lineElement[4]));
                 tempScreen.setTotalSeatNum(Integer.parseInt(lineElement[5]));

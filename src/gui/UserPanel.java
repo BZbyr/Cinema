@@ -15,7 +15,6 @@ public class UserPanel extends JPanel{
     JLabel userLabel = new JLabel("What can I do for you",JLabel.CENTER);
     //JButton
     JButton userButton1 = new JButton("Buy ticket");
-    JButton userButton2 = new JButton("Refund");
 
     public UserPanel(){
         super();
@@ -25,10 +24,8 @@ public class UserPanel extends JPanel{
         JPanel userButtonPanel = new JPanel();
         userButtonPanel.setLayout(new FlowLayout());
         userButton1.setPreferredSize(new Dimension(200,100));
-        userButton2.setPreferredSize(new Dimension(200,100));
 
         userButtonPanel.add(userButton1);
-        userButtonPanel.add(userButton2);
         userLabel.setFont(f);
 
         this.add(userLabel,BorderLayout.NORTH);

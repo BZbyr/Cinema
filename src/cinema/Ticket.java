@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-import Test.*;
 import cinema.TicketControl;
 import cinema.FilmIO;
 
@@ -20,7 +19,6 @@ public class Ticket {
     private int screenId;
     private int[] seat;
     private int ticketType;
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
 
     public String getTicketId() {
         return ticketId;
@@ -99,9 +97,9 @@ public class Ticket {
         this.ticketId = tc.getRandomID();
         this.filmId = filmId;
         this.seat = seat;
-        if(Test.Debug){
+        /*if(Test.Debug){
             System.out.println(seat);
-        }
+        }*/
         this.screenId = screenId;
         this.date = passedDate;
 

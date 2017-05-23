@@ -1,10 +1,6 @@
 package cinema;
 
-import Test.Test;
-import cinema.Screen;
-import cinema.ScreenIO;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,8 +8,6 @@ import java.util.Date;
  * Created by wangchao on 2017/4/17 0017.
  */
 public class ScreenControl {
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
-
     //occred when book / refund ticket
     //update screen.txt modify leftTicketNum by int num
     public void update(int screenId, String Date, int num){
@@ -25,11 +19,11 @@ public class ScreenControl {
             Screen writeTempScreen = new Screen();
             writeTempScreen = (Screen)screenArr.get(j);
             //如果第一位（screenId位）以及日期位（date位）与传进来的匹配，则唯一确定条目
-            if(Test.Debug) {
+           /* if(Test.Debug) {
                 System.out.println("screen id " + writeTempScreen.getScreenId() + " compare " + screenId);
                 System.out.println("date " + sdf.format(writeTempScreen.getDate()) + " compare " + Date);
-            }
-            if(writeTempScreen.getScreenId() == screenId && sdf.format(writeTempScreen.getDate()).equals(Date)){
+            }*/
+            if(writeTempScreen.getScreenId() == screenId && Utility.sdf.format(writeTempScreen.getDate()).equals(Date)){
                 writeTempScreen.setLeftTicketNum(writeTempScreen.getLeftTicketNum()+num);
                 if(writeTempScreen.getLeftTicketNum() < 0 || writeTempScreen.getLeftTicketNum()>writeTempScreen.getTotalSeatNum()){
                     System.out.println("Error");
@@ -61,7 +55,9 @@ public class ScreenControl {
         screenArr = new ScreenIO().readScreenInfo();
 
         for(int i = 0 ; i<screenArr.size();i++){
-            if(sdf.format(screenArr.get(i).getDate()).equals(date)&& screenArr.get(i).getFilmId()==filmId){
+
+            if(Utility.sdf.format(screenArr.get(i).getDate()).equals(date)&& screenArr.get(i).getFilmId()==filmId){
+
                 tempScreen = screenArr.get(i);
             }
         }

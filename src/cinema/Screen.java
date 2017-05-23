@@ -1,7 +1,6 @@
 package cinema;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,8 +9,6 @@ import java.util.Date;
  */
 public class Screen {
     ArrayList<Screen> screenArr = new ArrayList<Screen>();
-    //format of date
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
 
     private int  screenId;
     private int filmId;
@@ -77,7 +74,7 @@ public class Screen {
         this.screenId = screenId;
         this.filmId = filmId;
         try {
-            this.date = sdf.parse(stringDate);
+            this.date = Utility.sdf.parse(stringDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -93,7 +90,7 @@ public class Screen {
         this.screenId = screenId;
         this.filmId = filmId;
         try {
-            this.date = sdf.parse(stringDate);
+            this.date = Utility.sdf.parse(stringDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }

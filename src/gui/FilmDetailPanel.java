@@ -1,10 +1,6 @@
 package gui;
 
-import cinema.Control.ScreenControl;
-import cinema.Entity.Film;
-import cinema.Entity.Screen;
-import cinema.IO.FilmIO;
-import cinema.IO.ScreenIO;
+import cinema.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +15,7 @@ import java.util.Date;
 //Button
 public class FilmDetailPanel extends JPanel{
     Font f = new Font("Arial",Font.PLAIN, 30);
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
-
+    //SimpleDateFormat sdfHours = new SimpleDateFormat("dd-HH:mm");
     //JLabel
     JLabel filmNameLabel = new JLabel();
     JLabel filmIntro = new JLabel();
@@ -58,7 +53,7 @@ public class FilmDetailPanel extends JPanel{
         filmDateButton = new JButton[dateArr.size()];
 
         for(int i = 0; i < dateArr.size(); i++){
-            filmDateButton[i] = new JButton(sdf.format(dateArr.get(i)));
+            filmDateButton[i] = new JButton(Utility.sdf.format(dateArr.get(i)));
             filmButtonPanel.add(filmDateButton[i]);
         }
         filmInfoPanel.setLayout(new FlowLayout());

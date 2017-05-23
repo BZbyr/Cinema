@@ -19,7 +19,7 @@ public class TicketControl {
     public boolean checkId(String randomID){
         boolean checkFlag = true;
         ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
-        ticketArr = (new TicketIO()).readTicketInfo();
+        ticketArr = (new TicketIO()).readInfo();
 
         for(int i = 0; i < ticketArr.size(); i++){
             if (ticketArr.get(i).getTicketId().equals(randomID)){
@@ -51,19 +51,12 @@ public class TicketControl {
         Ticket ticket = new Ticket(chosenScreen.getFilmId(), chosenScreen.getDate(), chosenScreen.getTimeInterval()
                 , chosenScreen.getScreenId(), seat, ticketType);
 
-        /*String str = ticket.getTicketId();
-        Film film = ticket.getFilm();
-
-
-        (new QRGenerator()).generateQR(""+film.getfilmName()+"\n Screen "+ticket.getScreenId()+
-                "\nSeat: "+ Arrays.toString(ticket.getSeat()),"src/pic/"+str+".png");
-           */
         return ticket;
     }
     public boolean saveTicket(Ticket ticket){
         boolean flag = true;
         TicketIO ti = new TicketIO();
-        if(ti.writeTicketInfo(ticket)){
+        if(ti.writeInfo(ticket)){
             flag = true;
         }else
             flag = false;
@@ -76,7 +69,7 @@ public class TicketControl {
     public HashSet<Seat> getTakenSeat(int screenID){
         HashSet<Seat> seatHashSet = new HashSet<Seat>();
         TicketIO ti = new TicketIO();
-        ArrayList<Ticket> ticketArrayList = ti.readTicketInfo();
+        ArrayList<Ticket> ticketArrayList = ti.readInfo();
         //将已有Ticket的座位取出来
         for(int i = 0; i< ticketArrayList.size();i++){
             if(ticketArrayList.get(i).getScreenId()==screenID) {

@@ -16,7 +16,7 @@ public class IdentityPanel extends JPanel{
 
     JButton identityButton1 = new JButton("User");
     JButton identityButton2 = new JButton("Administrator");
-
+    JButton returnButton = new JButton("Return");
     public IdentityPanel(){
         super();
         //identity panel
@@ -27,6 +27,7 @@ public class IdentityPanel extends JPanel{
 
         identityButtonPanel.add(identityButton1);
         identityButtonPanel.add(identityButton2);
+        identityButtonPanel.add(returnButton);
         identityLabel.setFont(f);
 
         this.setLayout(new BorderLayout());

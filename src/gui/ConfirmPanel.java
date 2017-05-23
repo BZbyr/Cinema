@@ -1,6 +1,6 @@
 package gui;
 
-import cinema.Entity.Ticket;
+import cinema.Ticket;
 
 import javax.swing.*;
 import java.awt.*;

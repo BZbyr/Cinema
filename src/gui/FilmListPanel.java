@@ -1,7 +1,7 @@
 package gui;
 
-import cinema.Control.FilmControl;
-import cinema.Entity.Film;
+import cinema.FilmControl;
+import cinema.Film;
 
 import javax.swing.*;
 import java.awt.*;

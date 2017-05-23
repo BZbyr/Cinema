@@ -1,7 +1,5 @@
 package cinema;
 
-import Test.Test;
-import cinema.Film;
 
 import java.io.*;
 
@@ -22,9 +20,9 @@ public class FilmIO {
         }else{
             numFlag = 1;
         }
-       if(Test.Debug)
+       /*if(Test.Debug)
             System.out.println("num flag" + numFlag);
-
+        */
         Film returnFilm = new Film();
         BufferedReader br = null;
         String line = "";
@@ -33,6 +31,8 @@ public class FilmIO {
             br = new BufferedReader(new FileReader(FilmInfo));
             while ((line = br.readLine()) != null) {
                 lineElement = line.split("\\$");
+//                System.out.println("lineElement[numFlag] "+lineElement[numFlag]);
+//                System.out.println("param"+param);
                 if (lineElement[numFlag].equals(param)) {
                     returnFilm.setFilmId(Integer.parseInt(lineElement[0]));
                     returnFilm.setFilmName(lineElement[1]);
@@ -41,6 +41,7 @@ public class FilmIO {
                     returnFilm.setFilmIntro(lineElement[4]);
                 }
             }
+            System.out.println("Finnaly : "+returnFilm.getFilmId());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,9 +53,10 @@ public class FilmIO {
         String line = "" + film.getFilmId() + "$" + film.getfilmName() + "$"+ film.getTimeInterval()+ "$" + film.getPictureSrc() + "$"
                 +film.getFilmIntro();
         //debug
-        if(Test.Debug)
+       /* if(Test.Debug)
             System.out.println(line);
-        try {
+        */
+       try {
             //追加写 append: true
             bw = new BufferedWriter(new FileWriter(FilmInfo,true));
             bw.write(line);

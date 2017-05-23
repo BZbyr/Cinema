@@ -1,2 +1,5 @@
-0$Beast&Beauty$120$src/pic/01.jpg$tell about a story
-1$X-MEN$110$src/pic/02.jpg$another story
+0$KONG$118$src/pic/kong.jpg$Skull ISLAND
+1$LOGAN$135$src/pic/logan.jpg$X-MAN
+2$Beauty And The Beast$130$src/pic/bb.jpg$tell about a love story
+3$Moonlight$111$src/pic/moonlight.jpg$A boy's story
+4$LA LA LAND$128$src/pic/lala.jpg$Music Movie

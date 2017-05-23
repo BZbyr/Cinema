@@ -18,7 +18,7 @@ public class ReportIO {
     public boolean generateReport() {
         try{
             ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
-            ticketArr = (new TicketIO()).readTicketInfo();
+            ticketArr = (new TicketIO()).readInfo();
             File report = new File("src/texts/ReportInfo.txt");
             if (!report.exists()){
                 report.createNewFile();

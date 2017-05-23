@@ -1,8 +1,5 @@
 package cinema;
 
-import Test.Test;
-import cinema.Ticket;
-
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,22 +8,20 @@ import java.util.ArrayList;
 /**
  * Created by wangchao on 2017/4/18 0018.
  */
-public class TicketIO {
+public class TicketIO implements IO{
     File TicketInfo = new File("src/texts/TicketInfo.txt");
 
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
-
-    public boolean writeTicketInfo(Ticket ticket){
+    public boolean writeInfo(Object obj){
+        Ticket ticket = (Ticket) obj;
         boolean flag = true;
         BufferedWriter bw = null;
-        String line = "" + ticket.getTicketId() + "$" + ticket.getFilmId() + "$" + sdf.format(ticket.getDate()) + "$"
+        String line = "" + ticket.getTicketId() + "$" + ticket.getFilmId() + "$" + Utility.sdf.format(ticket.getDate()) + "$"
                 + ticket.getTimeInterval() + "$" + ticket.getScreenId() + "$" + ticket.getSeat()[0] +"$"+ ticket.getSeat()[1] + "$" + ticket.getTicketType();
-        //debug
-        if(Test.Debug)
-            System.out.println(line);
+
         try {
             //追加写 append: true
             bw = new BufferedWriter(new FileWriter(TicketInfo,true));
+            System.out.println(line);
             bw.write(line);
             bw.newLine();
             bw.flush();
@@ -36,7 +31,7 @@ public class TicketIO {
         }
         return flag;
     }
-    public ArrayList<Ticket> readTicketInfo(){
+    public ArrayList<Ticket> readInfo(){
         ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
         BufferedReader br = null;
         String line = "";
@@ -49,7 +44,7 @@ public class TicketIO {
             lineElement = line.split("\\$");
             tempTicket.setTicketId(lineElement[0]);
             tempTicket.setFilmId(Integer.parseInt(lineElement[1]));
-            tempTicket.setDate(sdf.parse(lineElement[2]));
+            tempTicket.setDate(Utility.sdf.parse(lineElement[2]));
             tempTicket.setTimeInterval(Integer.parseInt(lineElement[3]));
             tempTicket.setScreenId(Integer.parseInt(lineElement[4]));
             int tempSeat[] = new int[2];
