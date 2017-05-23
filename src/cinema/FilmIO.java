@@ -13,7 +13,7 @@ public class FilmIO {
 
     public Film readFilmInfo(String param) {
         //use firstChar to judge the param
-        int numFlag = 0; //0 meansa param is a number 1 stands for string;
+        int numFlag; //0 meansa param is a number 1 stands for string;
         char firstChar = param.charAt(0);
         if(firstChar>='0' && firstChar <= '9'){
             numFlag = 0;

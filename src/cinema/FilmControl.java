@@ -19,7 +19,7 @@ public class FilmControl {
         return film;
     }
     public ArrayList<Film> listFilm(){
-        ArrayList<Film> filmArrayList = new ArrayList<Film>();
+        ArrayList<Film> filmArrayList = new ArrayList<>();
         /*if(Test.Debug) {
             System.out.println("list film");
         }*/

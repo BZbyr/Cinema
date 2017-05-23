@@ -1,6 +1,5 @@
 package gui;
 
-import javafx.scene.control.RadioButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,10 +30,42 @@ public class TicketTypePanel extends JPanel{
     JPanel textAreaPanel = new JPanel(new FlowLayout());
 
     //TicketTypeResult ArrayList
-    ArrayList<Integer> ticketTypeArr = new ArrayList<Integer>();
+    ArrayList<Integer> ticketTypeArr = new ArrayList<>();
 
     public TicketTypePanel(int num){
         super();
+        set(num);
+    }
+//    遍历ButtonGroup返回对应ticket类型
+    public int returnTicketType(){
+        String chosenButtonString = "";
+        int ticketType=-1;
+        Enumeration<AbstractButton> radioBtns=typeButtonGroup.getElements();
+        while (radioBtns.hasMoreElements()) {
+            AbstractButton btn = radioBtns.nextElement();
+            if(btn.isSelected()){
+                chosenButtonString=btn.getText();
+                break;
+            }
+        }
+        switch (chosenButtonString){
+            case "Normal":
+                ticketType = 1;
+                break;
+            case "Student":
+                ticketType = 2;
+                break;
+            case "Child":
+                ticketType = 3;
+                break;
+            default:
+                System.out.println("Error input");
+                break;
+        }
+        return ticketType;
+    }
+
+    private void set(int num) {
         ticketTypeLabel= new JLabel("Please choose type of your "+num+" ticket: ",JLabel.CENTER);
         this.setLayout(new BorderLayout());
         //ButtonGroup中按钮互斥，不需要放入panel中
@@ -85,34 +116,5 @@ public class TicketTypePanel extends JPanel{
         this.add(ticketTypeLabel,BorderLayout.NORTH);
         this.add(radioButtonPanel,BorderLayout.CENTER);
         this.add(textAreaPanel,BorderLayout.SOUTH);
-
-    }
-//    遍历ButtonGroup返回对应ticket类型
-    public int returnTicketType(){
-        String chosenButtonString = "";
-        int ticketType=-1;
-        Enumeration<AbstractButton> radioBtns=typeButtonGroup.getElements();
-        while (radioBtns.hasMoreElements()) {
-            AbstractButton btn = radioBtns.nextElement();
-            if(btn.isSelected()){
-                chosenButtonString=btn.getText();
-                break;
-            }
-        }
-        switch (chosenButtonString){
-            case "Normal":
-                ticketType = 1;
-                break;
-            case "Student":
-                ticketType = 2;
-                break;
-            case "Child":
-                ticketType = 3;
-                break;
-            default:
-                System.out.println("Error input");
-                break;
-        }
-        return ticketType;
     }
 }

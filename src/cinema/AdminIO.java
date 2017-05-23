@@ -1,6 +1,5 @@
 package cinema;
 
-import cinema.Admin;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class AdminIO {
     File AdminInfo = new File("src/texts/AdminInfo.txt");
 
     public ArrayList<Admin> readAdminInfo(){
-        ArrayList<Admin> adminArrayList = new ArrayList<Admin>();
+        ArrayList<Admin> adminArrayList = new ArrayList<>();
         BufferedReader br = null;
         String line = "";
         String lineElement [];

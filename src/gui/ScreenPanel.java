@@ -35,6 +35,27 @@ public class ScreenPanel extends JPanel{
     HashSet<Seat> seatHashSet;
     public ScreenPanel(String filmName,String date){
         super();
+        set(filmName,date);
+    }
+    //第一个值传所在行，第二个值传想要判断的按钮的位置，返回这个按钮前面有多少个空位
+    public int getNoExist(int rowNum, int butNum){
+        HashSet<Seat> seatHashSet1=this.seatHashSet;
+        int notexistCount=0;
+        for(Iterator it = seatHashSet1.iterator(); it.hasNext();) {
+
+            Seat tempSeat  = (Seat) it.next();
+            if(tempSeat.getRowNum()==rowNum){
+                if(tempSeat.getColNum()<butNum){
+                    notexistCount++;
+                }
+            }
+
+        }
+        return notexistCount;
+
+    }
+
+    private void set(String filmName, String date) {
         this.setLayout(new BorderLayout());
 
         filmNameLabel = new JLabel(filmName,JLabel.CENTER);
@@ -98,24 +119,5 @@ public class ScreenPanel extends JPanel{
         this.add(screenIdLabel,BorderLayout.NORTH);
         this.add(seatPanel,BorderLayout.CENTER);
         this.add(submitPanel,BorderLayout.SOUTH);
-
-    }
-    //第一个值传所在行，第二个值传想要判断的按钮的位置，返回这个按钮前面有多少个空位
-    public int getNoExist(int rowNum, int butNum){
-        HashSet<Seat> seatHashSet=this.seatHashSet;
-        int notexistCount=0;
-        for(Iterator it = seatHashSet.iterator(); it.hasNext();)
-        {
-
-            Seat tempSeat  = (Seat) it.next();
-            if(tempSeat.getRowNum()==rowNum){
-                if(tempSeat.getColNum()<butNum){
-                    notexistCount++;
-                }
-            }
-
-        }
-        return notexistCount;
-
     }
 }

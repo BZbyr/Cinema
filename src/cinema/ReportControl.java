@@ -1,7 +1,5 @@
 package cinema;
 
-import cinema.ReportIO;
-
 /**
  * Created by wangchao on 2017/5/20 0020.
  */

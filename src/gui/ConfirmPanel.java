@@ -29,6 +29,9 @@ public class ConfirmPanel extends JPanel{
     JPanel ticketInfoPanel = new JPanel(new FlowLayout());
     public ConfirmPanel(ArrayList<Ticket> ticketArrayList){
         super();
+        set(ticketArrayList);
+    }
+    private void set(ArrayList<Ticket> ticketArrayList){
         this.setLayout(new BorderLayout());
         /*filmNameLabel.setText(ticket.getFilm().getfilmName());
         timeLabel.setText(""sdf.format(ticket.getDate()));

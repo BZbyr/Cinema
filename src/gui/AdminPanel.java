@@ -1,12 +1,8 @@
 package gui;
 
-import cinema.Control.ReportControl;
-import cinema.IO.ReportIO;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by wangchao on 2017/5/16 0016.
@@ -19,6 +15,10 @@ public class AdminPanel extends JPanel{
     JPanel buttonPanel = new JPanel();
     public AdminPanel(){
         super();
+        set();
+    }
+    
+    private void set(){
         this.setLayout(new BorderLayout());
         adminChoice = new JButton("Report");
         returnButton = new JButton("Close");

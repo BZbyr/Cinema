@@ -1,11 +1,8 @@
 package cinema;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-import cinema.TicketControl;
-import cinema.FilmIO;
 
 /**
  * Created by wangchao on 2017/3/24.

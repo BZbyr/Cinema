@@ -2,7 +2,6 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 /**
  * Created by wangchao on 2017/4/17 0017.
@@ -22,6 +21,11 @@ public class WelcomePanel extends JPanel{
 
     public WelcomePanel(){
         super();
+        set();
+        
+    }
+
+    private void set() {
         welcomeLabel.setFont(f);
         this.setLayout(new BorderLayout());
         welcomePicLabel = new JLabel(image);

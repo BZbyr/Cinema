@@ -1,7 +1,5 @@
 package cinema;
 
-import cinema.Layout;
-import cinema.Seat;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.io.*;
@@ -15,7 +13,7 @@ public class LayoutIO {
     File LayoutInfo = new File("src/texts/LayoutInfo.txt");
 
     public ArrayList<Layout> readLayoutFromFile() {
-        ArrayList<Layout> layoutArr = new ArrayList<Layout>();
+        ArrayList<Layout> layoutArr = new ArrayList<>();
         boolean checkFlag = true;
         BufferedReader br = null;
         String line = "";
@@ -31,7 +29,7 @@ public class LayoutIO {
                 tempLayout.setLayoutId(Integer.parseInt(lineElement[0]));
                 tempLayout.setRowNum(Integer.parseInt(lineElement[1]));
                 tempLayout.setColNum(Integer.parseInt(lineElement[2]));
-                HashSet<Seat> missSeatSet = new HashSet<Seat>();
+                HashSet<Seat> missSeatSet = new HashSet<>();
                 for(int i = 3; i < lineElement.length; i++)
                 {
                     elementElement = lineElement[i].split("\\,");

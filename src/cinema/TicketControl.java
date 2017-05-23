@@ -1,11 +1,6 @@
 package cinema;
 
 
-import cinema.Film;
-import cinema.Screen;
-import cinema.Seat;
-import cinema.Ticket;
-import cinema.TicketIO;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,10 +10,12 @@ import java.util.Random;
  * Created by wangchao on 2017/4/18 0018.
  */
 public class TicketControl {
+    ArrayList<Ticket> ticketArr = new ArrayList<>();
+    HashSet<Seat> seatHashSet = new HashSet<>();
     //check is it an used ID,read from ticket.txt
     public boolean checkId(String randomID){
         boolean checkFlag = true;
-        ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
+        
         ticketArr = (new TicketIO()).readInfo();
 
         for(int i = 0; i < ticketArr.size(); i++){
@@ -56,10 +53,7 @@ public class TicketControl {
     public boolean saveTicket(Ticket ticket){
         boolean flag = true;
         TicketIO ti = new TicketIO();
-        if(ti.writeInfo(ticket)){
-            flag = true;
-        }else
-            flag = false;
+        flag = ti.writeInfo(ticket);
 
         String str = ticket.getTicketId();
         Film film = ticket.getFilm();
@@ -67,7 +61,7 @@ public class TicketControl {
         return flag;
     }
     public HashSet<Seat> getTakenSeat(int screenID){
-        HashSet<Seat> seatHashSet = new HashSet<Seat>();
+        
         TicketIO ti = new TicketIO();
         ArrayList<Ticket> ticketArrayList = ti.readInfo();
         //将已有Ticket的座位取出来

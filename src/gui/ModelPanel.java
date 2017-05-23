@@ -16,6 +16,11 @@ public class ModelPanel extends JPanel{
 
     public ModelPanel(){
         super();
+        set();
+        
+    }
+
+    private void set() {
         this.setLayout(new BorderLayout());
     }
 }

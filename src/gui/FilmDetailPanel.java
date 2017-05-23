@@ -4,7 +4,6 @@ import cinema.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,6 +13,8 @@ import java.util.Date;
 //Label
 //Button
 public class FilmDetailPanel extends JPanel{
+    ArrayList<Screen> screenArr = new ArrayList<>();
+    ArrayList<Date>dateArr = new ArrayList<>();
     Font f = new Font("Arial",Font.PLAIN, 30);
     //SimpleDateFormat sdfHours = new SimpleDateFormat("dd-HH:mm");
     //JLabel
@@ -27,6 +28,9 @@ public class FilmDetailPanel extends JPanel{
     JPanel filmInfoPanel = new JPanel();
     public FilmDetailPanel(String filmName){
         super();
+        set(filmName);
+    }
+    private void set(String filmName){
         this.setLayout(new BorderLayout());
         this.filmButtonPanel.setLayout(new FlowLayout());
 
@@ -44,8 +48,7 @@ public class FilmDetailPanel extends JPanel{
         filmIntro.setFont(f);
         ScreenIO si = new ScreenIO();
         ScreenControl sc = new ScreenControl();
-        ArrayList<Screen> screenArr = new ArrayList<Screen>();
-        ArrayList<Date>dateArr = new ArrayList<Date>();
+        
         dateArr = sc.getTimeByFilm(film.getFilmId());
         System.out.println(dateArr.get(1).toString());
         screenArr = si.readScreenInfo();
@@ -63,8 +66,5 @@ public class FilmDetailPanel extends JPanel{
         this.add(filmNameLabel,BorderLayout.NORTH);
         this.add(filmInfoPanel,BorderLayout.CENTER);
         this.add(filmButtonPanel,BorderLayout.SOUTH);
-
-
-
     }
 }

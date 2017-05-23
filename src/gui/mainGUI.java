@@ -40,11 +40,11 @@ public class mainGUI extends JFrame implements ActionListener{
     JButton dateButton[];
     JButton seatButton[][];
     //Film List
-    ArrayList<Film> filmList = new ArrayList<Film>();
+    ArrayList<Film> filmList = new ArrayList<>();
     //chosenSeatArraylist
-    ArrayList <Seat> chosenSeatArr = new ArrayList<Seat>();
+    ArrayList <Seat> chosenSeatArr = new ArrayList<>();
     //TicketTypeArrayList
-    ArrayList<Integer> ticketTypeArr = new ArrayList<Integer>();
+    ArrayList<Integer> ticketTypeArr = new ArrayList<>();
     //number of films
     int filmNum;
 
@@ -56,177 +56,21 @@ public class mainGUI extends JFrame implements ActionListener{
     Seat chosenSeat;
     Screen chosenScreen;
     int chosenTicketType;
-    ArrayList<Ticket>userTicketArr = new ArrayList<Ticket>();
+    ArrayList<Ticket>userTicketArr = new ArrayList<>();
 
     public mainGUI() {
         super("mainGUI");
-        mainPanel = this.getContentPane();
-
-
-        mainPanel.add(welcomePanel);
-        //buy ticket panel
-        //film list panel
-        this.setSize(1000, 800);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JButton welcomeButton = welcomePanel.welcomeButton;
-        welcomeButton.addActionListener(welcomeActionListener);
-
-        JButton identityButton1 = identityPanel.identityButton1;
-        JButton identityButton2 = identityPanel.identityButton2;
-        JButton idreturnButton = identityPanel.returnButton;
-
-        idreturnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                mainPanel.add(welcomePanel);
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-                mainPanel.validate();
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-            }
-        });
-        identityButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                mainPanel.add(userPanel);
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-                mainPanel.validate();
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-            }
-        });
-
-        //Dialog for the login of Admin
-        Dialog  adminLogin= new Dialog( this,"Dialog", true);
-        adminLogin.setLayout(new BorderLayout());
-        adminLogin.setBounds(400, 200, 1000, 300);
-        TextArea usernameTA = new TextArea("username");
-        TextArea passwordTA = new TextArea("password");
-//        usernameTA.setFont(Utility.f);
-//        passwordTA.setFont(Utility.f);
-        JButton submitLogin = new JButton("submit");
-        JLabel loginLabel = new JLabel("Text your username and password here: ",JLabel.CENTER);
-        loginLabel.setFont(Utility.f);
-        adminLogin.add(loginLabel,
-                BorderLayout.NORTH);
-        adminLogin.add(usernameTA,BorderLayout.WEST);
-        adminLogin.add(passwordTA,BorderLayout.EAST);
-        adminLogin.add(submitLogin,BorderLayout.SOUTH);
-        adminLogin.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                adminLogin.setVisible(false);
-            }
-        });
-
-
-        identityButton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adminLogin.setVisible(true);
-            }
-        });
-        submitLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                AdminControl ac = new AdminControl();
-                boolean success = ac.login(usernameTA.getText(),passwordTA.getText());
-                if(success){
-                    adminLogin.setVisible(false);
-                    mainPanel.removeAll();
-                    mainPanel.add(adminPanel);
-                    mainPanel.validate();
-                    mainPanel.setVisible(false);
-                    mainPanel.setVisible(true);
-                }else{
-                    loginLabel.setText("Wrong username or password, Enter again: ");
-                    adminLogin.setVisible(true);
-                    usernameTA.setText("username");
-                    passwordTA.setText("password");
-                    adminLogin.validate();
-                    mainPanel.setVisible(false);
-                    mainPanel.setVisible(true);
-                }
-            }
-        });
-
-        //Dialog for report
-        JButton reportButton = adminPanel.adminChoice;
-        JButton closeDialog = new JButton("OK");
-        Dialog d = new Dialog( this,"Dialog", true);
-        d.setLayout(new BorderLayout());
-        d.setBounds(400, 200, 500, 150);
-        d.add(new JLabel("Sucess Reported!",JLabel.CENTER),BorderLayout.NORTH);
-        d.add(closeDialog,BorderLayout.SOUTH);
-        d.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                d.setVisible(false);
-            }
-        });
-        closeDialog.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                mainPanel.add(adminPanel);
-                mainPanel.validate();
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-                d.setVisible(false);
-            }
-        });
-        reportButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ReportControl reportControl = new ReportControl();
-                reportControl.generateReport();
-                d.setVisible(true);
-            }
-        });
-        JButton returnButton = adminPanel.returnButton;
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                identityPanel = new IdentityPanel();
-                System.exit(0);
-
-            }
-        });
-
-        //User Button
-        JButton userButton1 = userPanel.userButton1;
-        filmListButtonPanel = filmListPanel.filmListButtonPanel;
-        userButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                mainPanel.add(filmListPanel);
-                mainPanel.validate();
-                mainPanel.setVisible(false);
-                mainPanel.setVisible(true);
-            }
-        });
-
-        for (int filmButtonCount = 0; filmButtonCount < filmButton.length; filmButtonCount++) {
-            filmButton[filmButtonCount].addActionListener(filmActionListener);
-        }
+        set();
     }
 
     ActionListener welcomeActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(identityPanel);
-                    mainPanel.validate();
-                    mainPanel.setVisible(false);
-                    mainPanel.setVisible(true);
+            mainPanel.removeAll();
+            mainPanel.add(identityPanel);
+            mainPanel.validate();
+            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
         }
     };
     ActionListener filmActionListener = new ActionListener() {
@@ -388,5 +232,167 @@ public class mainGUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+    
+    private void set(){
+        mainPanel = this.getContentPane();
+
+
+        mainPanel.add(welcomePanel);
+        //buy ticket panel
+        //film list panel
+        this.setSize(1000, 800);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JButton welcomeButton = welcomePanel.welcomeButton;
+        welcomeButton.addActionListener(welcomeActionListener);
+
+        JButton identityButton1 = identityPanel.identityButton1;
+        JButton identityButton2 = identityPanel.identityButton2;
+        JButton idreturnButton = identityPanel.returnButton;
+
+        idreturnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                mainPanel.add(welcomePanel);
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+            }
+        });
+        identityButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                mainPanel.add(userPanel);
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+            }
+        });
+
+        //Dialog for the login of Admin
+        Dialog  adminLogin= new Dialog( this,"Dialog", true);
+        adminLogin.setLayout(new BorderLayout());
+        adminLogin.setBounds(400, 200, 1000, 300);
+        TextArea usernameTA = new TextArea("username");
+        TextArea passwordTA = new TextArea("password");
+//        usernameTA.setFont(Utility.f);
+//        passwordTA.setFont(Utility.f);
+        JButton submitLogin = new JButton("submit");
+        JLabel loginLabel = new JLabel("Text your username and password here: ",JLabel.CENTER);
+        loginLabel.setFont(Utility.f);
+        adminLogin.add(loginLabel,
+                BorderLayout.NORTH);
+        adminLogin.add(usernameTA,BorderLayout.WEST);
+        adminLogin.add(passwordTA,BorderLayout.EAST);
+        adminLogin.add(submitLogin,BorderLayout.SOUTH);
+        adminLogin.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                adminLogin.setVisible(false);
+            }
+        });
+
+
+        identityButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                adminLogin.setVisible(true);
+            }
+        });
+        submitLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AdminControl ac = new AdminControl();
+                boolean success = ac.login(usernameTA.getText(),passwordTA.getText());
+                if(success){
+                    adminLogin.setVisible(false);
+                    mainPanel.removeAll();
+                    mainPanel.add(adminPanel);
+                    mainPanel.validate();
+                    mainPanel.setVisible(false);
+                    mainPanel.setVisible(true);
+                }else{
+                    loginLabel.setText("Wrong username or password, Enter again: ");
+                    adminLogin.setVisible(true);
+                    usernameTA.setText("username");
+                    passwordTA.setText("password");
+                    adminLogin.validate();
+                    mainPanel.setVisible(false);
+                    mainPanel.setVisible(true);
+                }
+            }
+        });
+
+        //Dialog for report
+        JButton reportButton = adminPanel.adminChoice;
+        JButton closeDialog = new JButton("OK");
+        Dialog d = new Dialog( this,"Dialog", true);
+        d.setLayout(new BorderLayout());
+        d.setBounds(400, 200, 500, 150);
+        d.add(new JLabel("Sucess Reported!",JLabel.CENTER),BorderLayout.NORTH);
+        d.add(closeDialog,BorderLayout.SOUTH);
+        d.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                d.setVisible(false);
+            }
+        });
+        closeDialog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                mainPanel.add(adminPanel);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+                d.setVisible(false);
+            }
+        });
+        reportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ReportControl reportControl = new ReportControl();
+                reportControl.generateReport();
+                d.setVisible(true);
+            }
+        });
+        JButton returnButton = adminPanel.returnButton;
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                identityPanel = new IdentityPanel();
+                System.exit(0);
+
+            }
+        });
+
+        //User Button
+        JButton userButton1 = userPanel.userButton1;
+        filmListButtonPanel = filmListPanel.filmListButtonPanel;
+        userButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                mainPanel.add(filmListPanel);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+            }
+        });
+
+        for (int filmButtonCount = 0; filmButtonCount < filmButton.length; filmButtonCount++) {
+            filmButton[filmButtonCount].addActionListener(filmActionListener);
+        }
     }
 }

@@ -3,11 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Document/Code/Cinema/src/cinema/Control/LayoutControl.java</file>
-            <file>file:/E:/Document/Code/Cinema/src/cinema/IO/FilmIO.java</file>
-            <file>file:/E:/Document/Code/Cinema/src/cinema/Control/FilmControl.java</file>
-            <file>file:/E:/Document/Code/Cinema/src/cinema/IO/ScreenIO.java</file>
-            <file>file:/E:/Document/Code/Cinema/src/cinema/Control/TicketControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/WelcomePanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/launchGUI.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ModelPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/FilmListPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/TicketTypePanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/IdentityPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/AdminPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ScreenPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ConfirmPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/FilmDetailPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/UserPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/mainGUI.java</file>
         </group>
     </open-files>
 </project-private>

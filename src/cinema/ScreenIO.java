@@ -3,7 +3,6 @@ package cinema;
 
 import java.io.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -51,7 +50,7 @@ public class ScreenIO {
 
     public ArrayList<Screen> readScreenInfo() {
 
-        ArrayList<Screen> screenArr = new ArrayList<Screen>();
+        ArrayList<Screen> screenArr = new ArrayList<>();
         BufferedReader br = null;
         String line = "";
         String lineElement[];

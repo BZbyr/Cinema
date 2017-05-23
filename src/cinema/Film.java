@@ -1,6 +1,5 @@
 package cinema;
 
-import cinema.FilmIO;
 
 import java.io.*;
 
@@ -31,10 +30,6 @@ public class Film {
     }
     public String getFilmIntro(){
         return this.filmIntro;
-    }
-
-    public void setFilmInfo(File filmInfo) {
-        filmInfo = filmInfo;
     }
 
     public void setFilmId(int filmId) {

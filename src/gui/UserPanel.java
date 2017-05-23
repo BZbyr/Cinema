@@ -18,6 +18,10 @@ public class UserPanel extends JPanel{
 
     public UserPanel(){
         super();
+        set();
+    }
+
+    private void set() {
         this.setLayout(new BorderLayout());
 
         //user panel
@@ -30,6 +34,5 @@ public class UserPanel extends JPanel{
 
         this.add(userLabel,BorderLayout.NORTH);
         this.add(userButtonPanel,BorderLayout.CENTER);
-
     }
 }

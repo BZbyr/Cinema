@@ -24,6 +24,10 @@ public class FilmListPanel extends JPanel{
 
     public FilmListPanel(){
         super();
+        set();
+    }
+    
+    private void set(){
         this.setLayout(new BorderLayout());
         FilmControl fc = new FilmControl();
         ArrayList<Film> filmList = fc.listFilm();
@@ -40,6 +44,5 @@ public class FilmListPanel extends JPanel{
         this.setLayout(new BorderLayout());
         this.add(filmListLabel,BorderLayout.NORTH);
         this.add(filmListButtonPanel,BorderLayout.CENTER);
-
     }
 }

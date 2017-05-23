@@ -1,6 +1,5 @@
 package cinema;
 
-import cinema.Ticket;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,11 +12,11 @@ import java.util.ArrayList;
  */
 public class ReportIO {
 
-    private static double ChildTicketDiscount = 0.5;
-    private static double StudentTicketDiscount = 0.85;
+    private static final double ChildTicketDiscount = 0.5;
+    private static final double StudentTicketDiscount = 0.85;
+    ArrayList<Ticket> ticketArr = new ArrayList<>();
     public boolean generateReport() {
         try{
-            ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
             ticketArr = (new TicketIO()).readInfo();
             File report = new File("src/texts/ReportInfo.txt");
             if (!report.exists()){

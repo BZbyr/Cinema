@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by wangchao on 2017/3/29.
  */
 public class Screen {
-    ArrayList<Screen> screenArr = new ArrayList<Screen>();
+    ArrayList<Screen> screenArr = new ArrayList<>();
 
     private int  screenId;
     private int filmId;

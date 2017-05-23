@@ -2,7 +2,6 @@ package cinema;
 
 import java.io.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +9,9 @@ import java.util.ArrayList;
  */
 public class TicketIO implements IO{
     File TicketInfo = new File("src/texts/TicketInfo.txt");
+    ArrayList<Ticket> ticketArr = new ArrayList<>();
 
+    @Override
     public boolean writeInfo(Object obj){
         Ticket ticket = (Ticket) obj;
         boolean flag = true;
@@ -31,8 +32,9 @@ public class TicketIO implements IO{
         }
         return flag;
     }
+    @Override
     public ArrayList<Ticket> readInfo(){
-        ArrayList<Ticket> ticketArr = new ArrayList<Ticket>();
+        
         BufferedReader br = null;
         String line = "";
         String lineElement [];
