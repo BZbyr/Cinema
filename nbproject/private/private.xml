@@ -3,18 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/WelcomePanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/launchGUI.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ModelPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/FilmListPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/TicketTypePanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/IdentityPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/AdminPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ScreenPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/ConfirmPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/FilmDetailPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/UserPanel.java</file>
-            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/gui/mainGUI.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/TicketTypePanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ScreenIO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ReportIO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/TicketControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Layout.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/FilmIO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/UserPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/AdminPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/AdminControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/IdentityPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Screen.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Ticket.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ScreenControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/TicketIO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Film.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/IO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ReportControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Admin.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/FilmControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ScreenPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Utility.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/mainGUI.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/launchGUI.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/LayoutIO.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/ConfirmPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/LayoutControl.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/FilmListPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/WelcomePanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/Seat.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/FilmDetailPanel.java</file>
+            <file>file:/C:/Users/zbyki/Documents/NetBeansProjects/Cinema/src/AdminIO.java</file>
         </group>
     </open-files>
 </project-private>
