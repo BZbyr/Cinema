@@ -22,11 +22,10 @@ public class ReportIO {
             }
             BufferedWriter bw = null;
             bw = new BufferedWriter(new FileWriter(report));
-            int[] saleNum = new int[2];
-            int[] FilmId = new int[2];
-            FilmId[0] =0;
-            FilmId[1] =1;
-            for (int i = 0; i<2 ;i++){
+
+            int[] saleNum = new int[5];
+            int[] FilmId = {0,1,2,3,4};
+            for (int i = 0; i<saleNum.length ;i++){
                 int count1 = 0;
                 for(Ticket t:ticketArr){
                     if(t.getFilmId()== FilmId[i]){
@@ -36,18 +35,18 @@ public class ReportIO {
                 saleNum[i] = count1;
             }
 
-            int[] count = {0,0,0};
+            int[] count2 = {0,0,0};
             String[] ticketType = {"Normal","Student","Child"};
             for(Ticket t: ticketArr){
                 switch(t.getTicketType()){
-                    case 1 :count[0]++;break;
-                    case 2 :count[1]++;break;
-                    case 3 :count[2]++;break;
+                    case 1 :count2[0]++;break;
+                    case 2 :count2[1]++;break;
+                    case 3 :count2[2]++;break;
                 }
             }
 
             double sumOfSelling;
-            sumOfSelling = (count[0]+count[1]*StudentTicketDiscount+count[2]*ChildTicketDiscount)*16;
+            sumOfSelling = (count2[0]+count2[1]*StudentTicketDiscount+count2[2]*ChildTicketDiscount)*16;
             bw.write("----------------------------------------------------");bw.newLine();
             bw.write("               SELLING      REPORT                  ");bw.newLine();
             bw.newLine();
@@ -62,8 +61,8 @@ public class ReportIO {
 //            bw.write("Sale of Movie X-MEN :"+saleNum[1]);bw.newLine();
             bw.newLine();
             bw.write("----------------------------------------------------");bw.newLine();
-            for (int a = 0; a<3; a++) {
-                bw.write("Type " + ticketType[a] + "Sales for : " + count[a]);
+            for (int a = 0; a<count2.length; a++) {
+                bw.write("Type " + ticketType[a] + "Sales for : " + count2[a]);
                 bw.newLine();
             }
             bw.write("----------------------------------------------------");bw.newLine();

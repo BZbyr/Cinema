@@ -62,46 +62,55 @@ public class ScreenPanel extends JPanel{
         FilmIO fi = new FilmIO();
         Film film = fi.readFilmInfo(filmName);
         ScreenControl sc = new ScreenControl();
-        System.out.println("film:"+film.getfilmName());
-        System.out.println("date:"+date);
+//        System.out.println("film:"+film.getfilmName());
+//        System.out.println("date:"+date);
         screen = sc.getScreenByDate(film.getfilmName(),date);
         screenIdLabel = new JLabel("NO. "+screen.getScreenId()+"Date: "+date,JLabel.CENTER);
 
         screenIdLabel.setFont(f);
         LayoutControl lc = new LayoutControl();
         TicketControl tc = new TicketControl();
-        System.out.println("screen.getLayoutID: "+screen.getLayoutId());
-        System.out.println("screen.getScreenID: "+screen.getScreenId());
-        System.out.println("screen.getFilmID: "+screen.getFilmId());
+//        System.out.println("screen.getLayoutID: "+screen.getLayoutId());
+//        System.out.println("screen.getScreenID: "+screen.getScreenId());
+//        System.out.println("screen.getFilmID: "+screen.getFilmId());
 
         Layout layout = lc.getLayoutById(screen.getLayoutId());
 
         seatHashSet = layout.getMissSeatSet();
         System.out.println(seatHashSet);
-        HashSet<Seat> takenHashSet = tc.getTakenSeat(screen.getScreenId());
+        HashSet<Seat> takenHashSet = tc.getTakenSeat(screen.getScreenId(),screen.getDate());
         colNum = layout.getColNum();
         rowNum = layout.getRowNum();
 
         seatButton = new JButton[rowNum][colNum];
         seatPanel= new JPanel(new GridLayout(rowNum,colNum,80,50));
+        int countNotExist = 0;
         for(int rowCount = 0; rowCount < rowNum; rowCount++){
-            int countNotExist = 0;
-
             for(int colCount = 0; colCount < colNum; colCount++){
                 seatButton[rowCount][colCount] = new JButton(""+ Utility.intToChar(rowCount)+(colCount+1-countNotExist));
                 seatButton[rowCount][colCount].setBackground(Utility.c);
                 seatPanel.add(seatButton[rowCount][colCount]);
+            }
+        }
+        for(int rowCount = 0; rowCount < rowNum; rowCount++){
+            countNotExist = 0;
+
+            for(int colCount = 0; colCount < colNum; colCount++){
+
                 Seat seat = new Seat(false,rowCount,colCount);
 
                 //此Seat不存在
                 if(seatHashSet.contains(seat)){
                     seatButton[rowCount][colCount].setVisible(false);
+                    System.out.println("notEXIST"+rowCount+colCount);
                     countNotExist++;
                 }
                 //此Seat已经被占用了
                 if(takenHashSet.contains(seat)){
-                    seatButton[rowCount][colCount].setBackground(Color.BLUE);
-                    seatButton[rowCount][colCount].setEnabled(false);
+                    System.out.println("TAKEN"+rowCount+colCount);
+
+                    seatButton[rowCount][(colCount+countNotExist)-1].setBackground(Color.BLUE);
+                    seatButton[rowCount][(colCount+countNotExist)-1].setEnabled(false);
                 }
 
             }

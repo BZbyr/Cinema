@@ -75,12 +75,15 @@ public class Ticket {
     @Override
     public String toString() {
         Film film = (new FilmIO()).readFilmInfo(""+filmId);
-        return  "\nFilm Name:" + film.getfilmName()+
-                "\nTime: " + date +
-                "\n" + timeInterval + "min" +
-                "\nScreen: " + screenId +
-                "\nseat: " + Arrays.toString(seat) +
-                "\nTick type: " + ticketType ;
+        return  "<html><body>" +
+                "Ticket ID: "+ticketId+
+                "<br/>Film Name:" + film.getfilmName()+
+                "<br/>Time: " + Utility.sdf.format(date) +" "+
+                 timeInterval + "min" +
+                "<br/>" +"\nScreen: " + screenId +
+                "<br/>seat: [" + (char)('A'+seat[0])+seat[1] +"]"+
+                "<br/>Tick type: " + ticketType
+                +"</body></html>";
     }
 
     //Constructor

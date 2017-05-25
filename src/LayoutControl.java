@@ -7,9 +7,7 @@ import java.util.ArrayList;
 public class LayoutControl {
     ArrayList<Layout> layoutArr = new ArrayList<>();
     public Layout getLayoutById(int LayoutId) {
-        System.out.println("LayoutId"+LayoutId);
-
-        
+//        System.out.println("LayoutId"+LayoutId);
 
         layoutArr = (new LayoutIO()).readLayoutFromFile();
         Layout layout = layoutArr.get(LayoutId);

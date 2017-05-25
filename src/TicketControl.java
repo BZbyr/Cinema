@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -34,7 +35,10 @@ public class TicketControl {
             int random2 = random.nextInt(max) % (max - min + 1) + min;
             int random3 = random.nextInt(max) % (max - min + 1) + min;
             int random4 = random.nextInt(max) % (max - min + 1) + min;
-            randomID = "" + random1 + random2 + random3 + random4;
+            int random5 = random.nextInt(max) % (max - min + 1) + min;
+            int random6 = random.nextInt(max) % (max - min + 1) + min;
+
+            randomID = "" + random1 + random2 + random3 + random4 + random5 + random6;
         }while(!checkId(randomID));
 
         return randomID;
@@ -57,15 +61,17 @@ public class TicketControl {
         
         return flag;
     }
-    public HashSet<Seat> getTakenSeat(int screenID){
-        
+    public HashSet<Seat> getTakenSeat(int screenID, Date date){
+
         TicketIO ti = new TicketIO();
         ArrayList<Ticket> ticketArrayList = ti.readInfo();
         //将已有Ticket的座位取出来
         for(int i = 0; i< ticketArrayList.size();i++){
-            if(ticketArrayList.get(i).getScreenId()==screenID) {
+            if(ticketArrayList.get(i).getScreenId()==screenID&&
+                    ticketArrayList.get(i).getDate().equals(date)) {
                 int seatInt[] = ticketArrayList.get(i).getSeat();
                 Seat tempSeat = new Seat(false, seatInt[0], seatInt[1]);
+                System.out.println("Taken Seat"+tempSeat.getRowNum()+":"+tempSeat.getColNum());
                 seatHashSet.add(tempSeat);
             }
         }

@@ -34,7 +34,7 @@ public class FilmDetailPanel extends JPanel{
         FilmIO fi = new FilmIO();
         Film film = fi.readFilmInfo(filmName);
 
-        System.out.println(film.getFilmId());
+//        System.out.println(film.getFilmId());
         filmNameLabel.setText(film.getfilmName());
         filmNameLabel.setHorizontalAlignment(JLabel.CENTER);
         filmNameLabel.setFont(f);
@@ -47,7 +47,7 @@ public class FilmDetailPanel extends JPanel{
         ScreenControl sc = new ScreenControl();
         
         dateArr = sc.getTimeByFilm(film.getFilmId());
-        System.out.println(dateArr.get(1).toString());
+//        System.out.println(dateArr.get(1).toString());
         screenArr = si.readScreenInfo();
 
         filmDateButton = new JButton[dateArr.size()];

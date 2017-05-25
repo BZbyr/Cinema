@@ -3,6 +3,9 @@
 
 Sale of Movie KONG: 4
 Sale of Movie LOGAN: 0
+Sale of Movie Beauty And The Beast: 3
+Sale of Movie Moonlight: 0
+Sale of Movie LA LA LAND: 4
 
 ----------------------------------------------------
 Type NormalSales for : 11

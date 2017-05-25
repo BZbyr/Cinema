@@ -33,6 +33,7 @@ public class mainGUI extends JFrame implements ActionListener{
     ConfirmPanel confirmPanel;
     JPanel filmListButtonPanel;
     TicketTypePanel ticketTypePanelArr[];
+    PaymentPanel paymentPanel;
 
     //buttons
     JButton filmButton[] = filmListPanel.filmListButton;
@@ -129,7 +130,7 @@ public class mainGUI extends JFrame implements ActionListener{
                             }else{
                                 System.out.println("not exist, add");
                                 chosenSeatArr.add(seat);
-                                System.out.println("this is current size"+chosenSeatArr.size());
+//                                System.out.println("this is current size"+chosenSeatArr.size());
                                 evenSource.setBackground(Color.BLACK);
                             }
                             for (int i = 0; i < chosenSeatArr.size(); i++) {
@@ -165,7 +166,7 @@ public class mainGUI extends JFrame implements ActionListener{
             ticketNum = chosenSeatArr.size();
             ticketTypePanelArr = new TicketTypePanel[chosenSeatArr.size()];
             ticketTypeActionLisArr = new ActionListener[chosenSeatArr.size()];
-            System.out.println("chosenSeatArr.size"+chosenSeatArr.size());
+//            System.out.println("chosenSeatArr.size"+chosenSeatArr.size());
             for(int i = 0;i<ticketNum;i++) {
                 int finalI = i;
                 ticketTypePanelArr[finalI] =new TicketTypePanel((finalI+1));
@@ -182,9 +183,9 @@ public class mainGUI extends JFrame implements ActionListener{
                             mainPanel.setVisible(true);
                         }else{
                             ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
-                            for(int i = 0 ; i<ticketTypeArr.size();i++) {
+                            /*for(int i = 0 ; i<ticketTypeArr.size();i++) {
                                 System.out.println(i + "+" + ticketTypeArr.get(i));
-                            }
+                            }*/
                             for(int i=0; i<ticketNum; i++){
                                 TicketControl tc = new TicketControl();
                                 Ticket userTicket = tc.generateTicket(chosenScreen,chosenSeatArr.get(i),ticketTypeArr.get(i));
@@ -192,6 +193,8 @@ public class mainGUI extends JFrame implements ActionListener{
                             }
                             confirmPanel = new ConfirmPanel(userTicketArr);
                             confirmPanel.confirmButton.addActionListener(confirmActionListener);
+                            confirmPanel.returnButton.addActionListener(confirmReturnListener);
+                            confirmPanel.updateLabel(userTicketArr);
                             mainPanel.removeAll();
                             mainPanel.add(confirmPanel);
                             mainPanel.validate();
@@ -209,13 +212,41 @@ public class mainGUI extends JFrame implements ActionListener{
             mainPanel.setVisible(true);
         }
     };
-
     ActionListener confirmActionListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            paymentPanel = new PaymentPanel();
+            paymentPanel.finishButton.addActionListener(finishActionListener);
+
+        }
+    };
+    ActionListener finishActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             for(int i = 0 ;i<userTicketArr.size();i++){
                 (new TicketControl()).saveTicket(userTicketArr.get(i));
             }
+            paymentPanel.dispose();
+            mainPanel.removeAll();
+            MessagePanel messagePanel = new MessagePanel("Thank you for purchase!");
+            mainPanel.add(messagePanel);
+            mainPanel.validate();
+            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
+        }
+    };
+    ActionListener confirmReturnListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            confirmPanel.ticketInfoPanel.removeAll();
+            confirmPanel.validate();
+            mainPanel.removeAll();
+            mainPanel.add(screenPanel);
+            ticketTypeArr = new ArrayList<>();
+            userTicketArr = new ArrayList<>();
+            mainPanel.validate();
+            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
         }
     };
     ActionListener screenReturnActionListener = new ActionListener() {
@@ -277,31 +308,7 @@ public class mainGUI extends JFrame implements ActionListener{
                 mainPanel.setVisible(true);
             }
         });
-        /*
-        //Dialog for the login of Admin
-        Dialog  adminLogin= new Dialog( this,"Dialog", true);
-        adminLogin.setLayout(new BorderLayout());
-        adminLogin.setBounds(400, 200, 1000, 300);
-        TextArea usernameTA = new TextArea("username");
-        TextArea passwordTA = new TextArea("password");
-//        usernameTA.setFont(Utility.f);
-//        passwordTA.setFont(Utility.f);
-        JButton submitLogin = new JButton("submit");
-        JLabel loginLabel = new JLabel("Text your username and password here: ",JLabel.CENTER);
-        loginLabel.setFont(Utility.f);
-        adminLogin.add(loginLabel,
-                BorderLayout.NORTH);
-        adminLogin.add(usernameTA,BorderLayout.WEST);
-        adminLogin.add(passwordTA,BorderLayout.EAST);
-        adminLogin.add(submitLogin,BorderLayout.SOUTH);
-        adminLogin.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                adminLogin.setVisible(false);
-            }
-        });
 
-        */
         identityButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -361,7 +368,6 @@ public class mainGUI extends JFrame implements ActionListener{
             }
         });
 */
-        //Dialog for report
         JButton reportButton = adminPanel.adminChoice;
         JButton closeDialog = new JButton("OK");
         Dialog d = new Dialog( this,"Dialog", true);

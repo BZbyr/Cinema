@@ -23,8 +23,8 @@ public class Admin {
     }
 
     public boolean equals(Admin admin){
-        System.out.println(admin.getUsername()+"="+this.getUsername());
-        System.out.println(admin.getPassword()+"="+this.getPassword());
+//        System.out.println(admin.getUsername()+"="+this.getUsername());
+//        System.out.println(admin.getPassword()+"="+this.getPassword());
         if(admin.getUsername().equals(this.getUsername())&&
                 admin.getPassword().equals(this.getPassword())){
             return true;

@@ -21,7 +21,7 @@ public class AdminIO {
                 Admin tempAdmin = new Admin();
                 lineElement = line.split("\\$");
                 tempAdmin.setUsername(lineElement[0]);
-                System.out.println("setPassword+"+lineElement[1]);
+//                System.out.println("setPassword+"+lineElement[1]);
                 tempAdmin.setPassword(lineElement[1]);
                 adminArrayList.add(tempAdmin);
             }
