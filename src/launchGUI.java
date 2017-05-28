@@ -4,7 +4,11 @@
  */
 
 public class launchGUI{
+	public static boolean whileFlag = false;
 	public static void main(String args[]){
-		mainGUI mGui = new mainGUI();
+
+		do {
+			mainGUI mGui = new mainGUI();
+		}while(whileFlag);
 	}
 }

@@ -11,9 +11,8 @@ import java.util.Iterator;
 
 public class ScreenPanel extends JPanel{
     final Font f = new Font("Arial",Font.PLAIN, 30);
-
-    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-HH");
-
+    Font fs = new Font("Arial",Font.BOLD,16);
+    Color cn = new Color(255,134,61);
     Screen screen;
     //JLabel
     JLabel filmNameLabel;
@@ -65,8 +64,7 @@ public class ScreenPanel extends JPanel{
 //        System.out.println("film:"+film.getfilmName());
 //        System.out.println("date:"+date);
         screen = sc.getScreenByDate(film.getfilmName(),date);
-        screenIdLabel = new JLabel("NO. "+screen.getScreenId()+"Date: "+date,JLabel.CENTER);
-
+        screenIdLabel = new JLabel("Screen NO. "+(screen.getScreenId()+1)+" Time: "+date,JLabel.CENTER);
         screenIdLabel.setFont(f);
         LayoutControl lc = new LayoutControl();
         TicketControl tc = new TicketControl();
@@ -83,7 +81,7 @@ public class ScreenPanel extends JPanel{
         rowNum = layout.getRowNum();
 
         seatButton = new JButton[rowNum][colNum];
-        seatPanel= new JPanel(new GridLayout(rowNum,colNum,80,50));
+        seatPanel= new JPanel(new GridLayout(rowNum,colNum,30,30));
         int countNotExist = 0;
         for(int rowCount = 0; rowCount < rowNum; rowCount++){
             for(int colCount = 0; colCount < colNum; colCount++){
@@ -109,16 +107,22 @@ public class ScreenPanel extends JPanel{
                 if(takenHashSet.contains(seat)){
                     System.out.println("TAKEN"+rowCount+colCount);
 
-                    seatButton[rowCount][(colCount+countNotExist)-1].setBackground(Color.BLUE);
+                    seatButton[rowCount][(colCount+countNotExist)-1].setBackground(cn);
                     seatButton[rowCount][(colCount+countNotExist)-1].setEnabled(false);
                 }
-
             }
         }
         JLabel screenLable = new JLabel("Screen",JLabel.CENTER);
+        screenLable.setFont(fs);
         screenReturnButton = new JButton("Return");
+        screenReturnButton.setFont(fs);
+        screenReturnButton.setBackground(Color.lightGray);
         submitPanel = new JPanel(new BorderLayout());
+        screenReturnButton.setPreferredSize(new Dimension(120,20));
         submitButton = new JButton("submit");
+        submitButton.setBackground(Color.lightGray);
+        submitButton.setFont(fs);
+        submitButton.setPreferredSize(new Dimension(100,50));
         submitPanel.add(screenLable,BorderLayout.NORTH);
         submitPanel.add(submitButton,BorderLayout.EAST);
         submitPanel.add(screenReturnButton,BorderLayout.WEST);

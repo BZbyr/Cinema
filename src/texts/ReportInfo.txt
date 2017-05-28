@@ -1,15 +1,15 @@
 ----------------------------------------------------
                SELLING      REPORT                  
 
-Sale of Movie KONG: 4
-Sale of Movie LOGAN: 0
-Sale of Movie Beauty And The Beast: 3
+Sale of Movie KONG: 2
+Sale of Movie LOGAN: 8
+Sale of Movie Beauty And The Beast: 0
 Sale of Movie Moonlight: 0
-Sale of Movie LA LA LAND: 4
+Sale of Movie LA LA LAND: 0
 
 ----------------------------------------------------
-Type NormalSales for : 11
+Type NormalSales for : 10
 Type StudentSales for : 0
 Type ChildSales for : 0
 ----------------------------------------------------
-SUM OF SELLING:                               176.0
+SUM OF SELLING:                               160.0

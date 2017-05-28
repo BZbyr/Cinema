@@ -1,5 +1,6 @@
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,19 +13,22 @@ import java.util.Enumeration;
 //Label
 //Button
 public class TicketTypePanel extends JPanel{
-    Font f = new Font("Arial",Font.PLAIN, 30);
-
+    Font f = new Font("Arial",Font.BOLD, 30);
+    Font fs = new Font("Arial",Font.PLAIN,16);
+    Color c = new Color(157,195,229);
     //JLabel
     JLabel ticketTypeLabel ;
     //JButton
-    JRadioButton normalButton = new JRadioButton("Normal",true);
+    JRadioButton adultButton = new JRadioButton("Normal",true);
     JRadioButton studentButton = new JRadioButton("Student");
     JRadioButton childButton = new JRadioButton("Child");
+    JRadioButton seniorButton = new JRadioButton("Senior");
     ButtonGroup typeButtonGroup = new ButtonGroup();
-    JButton submitButton = new JButton("Submit!");
+    JButton submitButton = new JButton("Submit");
+    JButton returnButton = new JButton("Return");
     JTextArea textArea = new JTextArea();
     //JPanel
-    JPanel radioButtonPanel = new JPanel(new FlowLayout());
+    JPanel radioButtonPanel = new JPanel(new GridLayout(1,4,10,10));
     JPanel textAreaPanel = new JPanel(new FlowLayout());
 
     //TicketTypeResult ArrayList
@@ -36,6 +40,15 @@ public class TicketTypePanel extends JPanel{
     }
 //    遍历ButtonGroup返回对应ticket类型
     public int returnTicketType(){
+        adultButton.setFont(fs);
+        adultButton.setPreferredSize(new Dimension(150,100));
+        studentButton.setFont(fs);
+        studentButton.setPreferredSize(new Dimension(150,100));
+        childButton.setFont(fs);
+        childButton.setPreferredSize(new Dimension(150,100));
+        seniorButton.setFont(fs);
+        seniorButton.setPreferredSize(new Dimension(150,100));
+
         String chosenButtonString = "";
         int ticketType=-1;
         Enumeration<AbstractButton> radioBtns=typeButtonGroup.getElements();
@@ -56,6 +69,8 @@ public class TicketTypePanel extends JPanel{
             case "Child":
                 ticketType = 3;
                 break;
+            case "Senior":
+                ticketType = 4;
             default:
                 System.out.println("Error input");
                 break;
@@ -67,19 +82,26 @@ public class TicketTypePanel extends JPanel{
         ticketTypeLabel= new JLabel("Please choose type of your "+num+" ticket: ",JLabel.CENTER);
         this.setLayout(new BorderLayout());
         //ButtonGroup中按钮互斥，不需要放入panel中
-        typeButtonGroup.add(normalButton);
+        typeButtonGroup.add(adultButton);
         typeButtonGroup.add(studentButton);
         typeButtonGroup.add(childButton);
+        typeButtonGroup.add(seniorButton);
 
-        radioButtonPanel.add(normalButton);
+        radioButtonPanel.add(adultButton);
         radioButtonPanel.add(studentButton);
         radioButtonPanel.add(childButton);
-
+        radioButtonPanel.add(seniorButton);
+        radioButtonPanel.setBorder(new EmptyBorder(100, 100, 100, 100));
 
         textArea.setVisible(false);
         ticketTypeLabel.setFont(f);
+        submitButton.setBackground(c);
+        submitButton.setPreferredSize(new Dimension(100,50));
+        submitButton.setFont(fs);
         textAreaPanel.add(submitButton);
-        normalButton.addActionListener(new ActionListener() {
+        textAreaPanel.add(returnButton);
+
+        adultButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setVisible(false);
@@ -91,9 +113,12 @@ public class TicketTypePanel extends JPanel{
         studentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JLabel prompt = new JLabel("Please input student ID:");
+                prompt.setFont(fs);
                 textAreaPanel.removeAll();
-                textArea.setText("Enter your Student ID here");
                 textArea.setVisible(true);
+                textArea.setPreferredSize(new Dimension(100,50));
+                textAreaPanel.add(prompt);
                 textAreaPanel.add(textArea);
                 textAreaPanel.add(submitButton);
                 textAreaPanel.validate();
@@ -102,10 +127,22 @@ public class TicketTypePanel extends JPanel{
         childButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JLabel prompt = new JLabel("Please input your age:");
+                prompt.setFont(fs);
                 textAreaPanel.removeAll();
-                textArea.setText("Enter your Age here");
                 textArea.setVisible(true);
+                textArea.setPreferredSize(new Dimension(100,50));
+                textAreaPanel.add(prompt);
                 textAreaPanel.add(textArea);
+                textAreaPanel.add(submitButton);
+                textAreaPanel.validate();
+            }
+        });
+        seniorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea.setVisible(false);
+                textAreaPanel.removeAll();
                 textAreaPanel.add(submitButton);
                 textAreaPanel.validate();
             }

@@ -10,13 +10,14 @@ public class WelcomePanel extends JPanel{
 
     //Font Style
     Font f = new Font("Arial",Font.PLAIN, 30);
+    Color c = new Color(157,195,229);
 
     JLabel welcomeLabel = new JLabel("Welcome to XXX Cinema!",JLabel.CENTER);
     JLabel welcomePicLabel;
 
     JButton welcomeButton = new JButton("Start!");
 
-    ImageIcon image = new ImageIcon("src/pic/01.jpg");
+    ImageIcon image = new ImageIcon("src/pic/pic.jpg");
 
     public WelcomePanel(){
         super();
@@ -26,6 +27,7 @@ public class WelcomePanel extends JPanel{
 
     private void set() {
         welcomeLabel.setFont(f);
+        welcomeButton.setBackground(c);
         this.setLayout(new BorderLayout());
         welcomePicLabel = new JLabel(image);
         welcomeButton.setFont(f);

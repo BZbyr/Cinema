@@ -1,6 +1,8 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Random;
 
 
 /**
@@ -93,7 +95,7 @@ public class Ticket {
     public Ticket(int filmId,Date passedDate,int timeInterval,int screenId,int[] seat, int ticketType){
 
         TicketControl tc = new TicketControl();
-        this.ticketId = tc.getRandomID();
+        this.ticketId = getRandomID();
         this.filmId = filmId;
         this.seat = seat;
         /*if(Test.Debug){
@@ -108,6 +110,40 @@ public class Ticket {
     public Film getFilm(){
         Film film = (new FilmIO()).readFilmInfo(""+filmId);
         return film;
+    }
+
+    public String getRandomID(){
+        int max=4;
+        int min=1;
+        String randomID;
+        do {
+            Random random = new Random();
+            int random1 = random.nextInt(max) % (max - min + 1) + min;
+            int random2 = random.nextInt(max) % (max - min + 1) + min;
+            int random3 = random.nextInt(max) % (max - min + 1) + min;
+            int random4 = random.nextInt(max) % (max - min + 1) + min;
+            int random5 = random.nextInt(max) % (max - min + 1) + min;
+            int random6 = random.nextInt(max) % (max - min + 1) + min;
+
+            randomID = "" + random1 + random2 + random3 + random4 + random5 + random6;
+        }while(!checkId(randomID));
+
+        return randomID;
+    }
+    public boolean checkId(String randomID){
+        ArrayList<Ticket> ticketArr = new ArrayList<>();
+
+        boolean checkFlag = true;
+
+        ticketArr = (new TicketIO()).readInfo();
+
+        for(int i = 0; i < ticketArr.size(); i++){
+            if (ticketArr.get(i).getTicketId().equals(randomID)){
+                checkFlag = false;
+            }
+        }
+        //true means there is no duplicate
+        return checkFlag;
     }
 
 

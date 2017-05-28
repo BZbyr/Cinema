@@ -1,5 +1,7 @@
 
 
+import com.sun.corba.se.spi.monitoring.MonitoredAttributeInfo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -39,6 +41,8 @@ public class mainGUI extends JFrame implements ActionListener{
     JButton filmButton[] = filmListPanel.filmListButton;
     JButton dateButton[];
     JButton seatButton[][];
+    Font fs = new Font("Arial",Font.PLAIN,16);
+    Color c = new Color(221,247,255);
     //Film List
     ArrayList<Film> filmList = new ArrayList<>();
     //chosenSeatArraylist
@@ -62,7 +66,6 @@ public class mainGUI extends JFrame implements ActionListener{
         super("mainGUI");
         set();
     }
-
     ActionListener welcomeActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -80,6 +83,7 @@ public class mainGUI extends JFrame implements ActionListener{
             chosenFilmName = tempButton.getText();
             filmDetailPanel = new FilmDetailPanel(chosenFilmName);
             dateButton = filmDetailPanel.filmDateButton;
+            filmDetailPanel.detailReturnBut.addActionListener(detailReturnListener);
             for (int dateButtonCount=0; dateButtonCount<dateButton.length;dateButtonCount++){
                 dateButton[dateButtonCount].addActionListener(dateActionListener);
             }
@@ -110,8 +114,8 @@ public class mainGUI extends JFrame implements ActionListener{
                 for(int j=0;j<colNum;j++){
 
                     //add every button an actionlistener
-                    int finalI = i;
-                    int finalJ = j;
+                    final int finalI = i;
+                    final int finalJ = j;
                     actionListener[i][j] = new ActionListener(){
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -167,49 +171,70 @@ public class mainGUI extends JFrame implements ActionListener{
             ticketTypePanelArr = new TicketTypePanel[chosenSeatArr.size()];
             ticketTypeActionLisArr = new ActionListener[chosenSeatArr.size()];
 //            System.out.println("chosenSeatArr.size"+chosenSeatArr.size());
-            for(int i = 0;i<ticketNum;i++) {
-                int finalI = i;
-                ticketTypePanelArr[finalI] =new TicketTypePanel((finalI+1));
-                ticketTypeActionLisArr[finalI] = new ActionListener() {
+            if(ticketNum<=0){
+                MessagePanel noChooseMsgPanel = new MessagePanel("Not choose Seat");
+                noChooseMsgPanel.button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if(ticketTypeArr.size()!=(chosenSeatArr.size()-1)) {
+                        mainPanel.removeAll();
+                        mainPanel.add(screenPanel);
+                        mainPanel.validate();
+                        mainPanel.setVisible(false);
+                        mainPanel.setVisible(true);
+                    }
+                });
+                mainPanel.removeAll();
+                mainPanel.add(noChooseMsgPanel);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
+            }else {
+                for (int i = 0; i < ticketNum; i++) {
+                    final int finalI = i;
 
-                            ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
-                            mainPanel.removeAll();
-                            mainPanel.add(ticketTypePanelArr[finalI + 1]);
-                            mainPanel.validate();
-                            mainPanel.setVisible(false);
-                            mainPanel.setVisible(true);
-                        }else{
-                            ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
+                    ticketTypePanelArr[finalI] = new TicketTypePanel((finalI + 1));
+                    ticketTypePanelArr[finalI].returnButton.addActionListener(ttypeReturnListener);
+                    ticketTypeActionLisArr[finalI] = new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            if (ticketTypeArr.size() != (chosenSeatArr.size() - 1)) {
+
+                                ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
+                                mainPanel.removeAll();
+                                mainPanel.add(ticketTypePanelArr[finalI + 1]);
+                                mainPanel.validate();
+                                mainPanel.setVisible(false);
+                                mainPanel.setVisible(true);
+                            } else {
+                                ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
                             /*for(int i = 0 ; i<ticketTypeArr.size();i++) {
                                 System.out.println(i + "+" + ticketTypeArr.get(i));
                             }*/
-                            for(int i=0; i<ticketNum; i++){
-                                TicketControl tc = new TicketControl();
-                                Ticket userTicket = tc.generateTicket(chosenScreen,chosenSeatArr.get(i),ticketTypeArr.get(i));
-                                userTicketArr.add(userTicket);
+                                for (int i = 0; i < ticketNum; i++) {
+                                    TicketControl tc = new TicketControl();
+                                    Ticket userTicket = tc.generateTicket(chosenScreen, chosenSeatArr.get(i), ticketTypeArr.get(i));
+                                    userTicketArr.add(userTicket);
+                                }
+                                confirmPanel = new ConfirmPanel(userTicketArr);
+                                confirmPanel.confirmButton.addActionListener(confirmActionListener);
+                                confirmPanel.returnButton.addActionListener(confirmReturnListener);
+                                confirmPanel.updateLabel(userTicketArr);
+                                mainPanel.removeAll();
+                                mainPanel.add(confirmPanel);
+                                mainPanel.validate();
+                                mainPanel.setVisible(false);
+                                mainPanel.setVisible(true);
                             }
-                            confirmPanel = new ConfirmPanel(userTicketArr);
-                            confirmPanel.confirmButton.addActionListener(confirmActionListener);
-                            confirmPanel.returnButton.addActionListener(confirmReturnListener);
-                            confirmPanel.updateLabel(userTicketArr);
-                            mainPanel.removeAll();
-                            mainPanel.add(confirmPanel);
-                            mainPanel.validate();
-                            mainPanel.setVisible(false);
-                            mainPanel.setVisible(true);
                         }
-                    }
-                };
-                ticketTypePanelArr[i].submitButton.addActionListener(ticketTypeActionLisArr[i]);
+                    };
+                    ticketTypePanelArr[i].submitButton.addActionListener(ticketTypeActionLisArr[i]);
+                }
+                mainPanel.removeAll();
+                mainPanel.add(ticketTypePanelArr[0]);
+                mainPanel.validate();
+                mainPanel.setVisible(false);
+                mainPanel.setVisible(true);
             }
-            mainPanel.removeAll();
-            mainPanel.add(ticketTypePanelArr[0]);
-            mainPanel.validate();
-            mainPanel.setVisible(false);
-            mainPanel.setVisible(true);
         }
     };
     ActionListener confirmActionListener = new ActionListener() {
@@ -229,10 +254,44 @@ public class mainGUI extends JFrame implements ActionListener{
             paymentPanel.dispose();
             mainPanel.removeAll();
             MessagePanel messagePanel = new MessagePanel("Thank you for purchase!");
+            messagePanel.button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    mainPanel.removeAll();
+                    mainPanel.add(welcomePanel);
+                    ticketTypeArr = new ArrayList<>();
+                    chosenSeatArr = new ArrayList<>();
+                    userTicketArr = new ArrayList<>();
+                    mainPanel.setVisible(false);
+                    mainPanel.setVisible(true);
+                }
+            });
             mainPanel.add(messagePanel);
             mainPanel.validate();
             mainPanel.setVisible(false);
             mainPanel.setVisible(true);
+        }
+    };
+    ActionListener detailReturnListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainPanel.removeAll();
+            mainPanel.add(filmListPanel);
+            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
+        }
+    };
+    ActionListener ttypeReturnListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainPanel.removeAll();
+            ticketTypeArr = new ArrayList<>();
+            userTicketArr = new ArrayList<>();
+
+            mainPanel.add(screenPanel);
+            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
+
         }
     };
     ActionListener confirmReturnListener = new ActionListener() {
@@ -332,7 +391,6 @@ public class mainGUI extends JFrame implements ActionListener{
                             adminLoginPanel.dispose();
                         }else{
                             adminLoginPanel.l.setText("Wrong username or password, Enter again: ");
-
                             mainPanel.setVisible(false);
                             mainPanel.setVisible(true);
                         }
@@ -343,34 +401,11 @@ public class mainGUI extends JFrame implements ActionListener{
             }
         });
 
-/*
-        submitLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                AdminControl ac = new AdminControl();
-                boolean success = ac.login(usernameTA.getText(),passwordTA.getText());
-                if(success){
-                    adminLogin.setVisible(false);
-                    mainPanel.removeAll();
-                    mainPanel.add(adminPanel);
-                    mainPanel.validate();
-                    mainPanel.setVisible(false);
-                    mainPanel.setVisible(true);
-                }else{
-                    loginLabel.setText("Wrong username or password, Enter again: ");
-                    adminLogin.setVisible(true);
-                    usernameTA.setText("username");
-                    passwordTA.setText("password");
-                    adminLogin.validate();
-                    mainPanel.setVisible(false);
-                    mainPanel.setVisible(true);
-                }
-            }
-        });
-*/
         JButton reportButton = adminPanel.adminChoice;
         JButton closeDialog = new JButton("OK");
-        Dialog d = new Dialog( this,"Dialog", true);
+        closeDialog.setBackground(c);
+        closeDialog.setFont(fs);
+        final Dialog d = new Dialog( this,"Dialog", true);
         d.setLayout(new BorderLayout());
         d.setBounds(400, 200, 500, 150);
         d.add(new JLabel("Sucess Reported!",JLabel.CENTER),BorderLayout.NORTH);

@@ -1,6 +1,8 @@
 
+import javax.rmi.CORBA.Util;
 import javax.swing.*;
 import java.awt.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,14 +14,14 @@ import java.util.Date;
 public class FilmDetailPanel extends JPanel{
     ArrayList<Screen> screenArr = new ArrayList<>();
     ArrayList<Date>dateArr = new ArrayList<>();
-    Font f = new Font("Arial",Font.PLAIN, 30);
-    //SimpleDateFormat sdfHours = new SimpleDateFormat("dd-HH:mm");
+
     //JLabel
     JLabel filmNameLabel = new JLabel();
     JLabel filmIntro = new JLabel();
     JLabel imageLabel;
     //JButton
     JButton filmDateButton[];
+    JButton detailReturnBut = new JButton("Return");
     //JPanel
     JPanel filmButtonPanel = new JPanel();
     JPanel filmInfoPanel = new JPanel();
@@ -29,20 +31,19 @@ public class FilmDetailPanel extends JPanel{
     }
     private void set(String filmName){
         this.setLayout(new BorderLayout());
-        this.filmButtonPanel.setLayout(new FlowLayout());
+        this.filmButtonPanel.setLayout(new GridLayout(0,3,20,20));
 
         FilmIO fi = new FilmIO();
         Film film = fi.readFilmInfo(filmName);
 
-//        System.out.println(film.getFilmId());
         filmNameLabel.setText(film.getfilmName());
         filmNameLabel.setHorizontalAlignment(JLabel.CENTER);
-        filmNameLabel.setFont(f);
+        filmNameLabel.setFont(Utility.f);
         ImageIcon image = new ImageIcon(film.getPictureSrc());
         imageLabel = new JLabel(image);
-        filmIntro.setText("Brief Intro: "+film.getFilmIntro()+"\n" + "Time last:"+film.getTimeInterval());
+        filmIntro.setText("<html>Brief Intro: "+film.getFilmIntro()+"\n" + "<br>Time last:"+film.getTimeInterval()+"mins<html>");
         filmIntro.setHorizontalAlignment(JLabel.CENTER);
-        filmIntro.setFont(f);
+        filmIntro.setFont(Utility.f);
         ScreenIO si = new ScreenIO();
         ScreenControl sc = new ScreenControl();
         
@@ -51,12 +52,27 @@ public class FilmDetailPanel extends JPanel{
         screenArr = si.readScreenInfo();
 
         filmDateButton = new JButton[dateArr.size()];
-
+        detailReturnBut.setPreferredSize(new Dimension(100,60));
+        detailReturnBut.setBackground(Utility.c);
+        detailReturnBut.setFont(Utility.fs);
         for(int i = 0; i < dateArr.size(); i++){
             filmDateButton[i] = new JButton(Utility.sdf.format(dateArr.get(i)));
+            filmDateButton[i].setPreferredSize(new Dimension(100,60));
+            filmDateButton[i].setBackground(Utility.cl);
+            filmDateButton[i].setFont(Utility.fs);
+            Date current = new Date();
+            try {
+                current = Utility.sdf.parse(Utility.sdf.format(new Date()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if(current.getTime()>dateArr.get(i).getTime()){
+                filmDateButton[i].setVisible(false);
+            }
             filmButtonPanel.add(filmDateButton[i]);
         }
-        filmInfoPanel.setLayout(new FlowLayout());
+        filmButtonPanel.add(detailReturnBut);
+        filmInfoPanel.setLayout(new GridLayout(0,2,10,0));
         filmInfoPanel.add(filmIntro);
         filmInfoPanel.add(imageLabel);
 
