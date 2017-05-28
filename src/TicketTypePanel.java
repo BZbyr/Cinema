@@ -93,6 +93,10 @@ public class TicketTypePanel extends JPanel{
         radioButtonPanel.add(seniorButton);
         radioButtonPanel.setBorder(new EmptyBorder(100, 100, 100, 100));
 
+        returnButton.setBackground(c);
+        returnButton.setPreferredSize(new Dimension(100,50));
+        returnButton.setFont(fs);
+
         textArea.setVisible(false);
         ticketTypeLabel.setFont(f);
         submitButton.setBackground(c);

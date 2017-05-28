@@ -107,7 +107,7 @@ public class ScreenPanel extends JPanel{
                 if(takenHashSet.contains(seat)){
                     System.out.println("TAKEN"+rowCount+colCount);
 
-                    seatButton[rowCount][(colCount+countNotExist)-1].setBackground(cn);
+                    seatButton[rowCount][(colCount+countNotExist)-1].setBackground(Color.GRAY);
                     seatButton[rowCount][(colCount+countNotExist)-1].setEnabled(false);
                 }
             }

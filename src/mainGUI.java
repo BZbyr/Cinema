@@ -135,7 +135,7 @@ public class mainGUI extends JFrame implements ActionListener{
                                 System.out.println("not exist, add");
                                 chosenSeatArr.add(seat);
 //                                System.out.println("this is current size"+chosenSeatArr.size());
-                                evenSource.setBackground(Color.BLACK);
+                                evenSource.setBackground(Color.GRAY);
                             }
                             for (int i = 0; i < chosenSeatArr.size(); i++) {
                                 Seat seatTest = chosenSeatArr.get(i);
