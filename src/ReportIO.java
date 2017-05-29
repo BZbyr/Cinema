@@ -15,7 +15,7 @@ public class ReportIO {
     public boolean generateReport() {
         try{
             ticketArr = (new TicketIO()).readInfo();
-            File report = new File("src/texts/ReportInfo.txt");
+            File report = new File(Utility.Prepath+"texts/ReportInfo.txt");
             if (!report.exists()){
                 report.createNewFile();
             }
@@ -24,7 +24,7 @@ public class ReportIO {
 
             String line;
 
-            BufferedReader br = new BufferedReader(new FileReader("src/texts/FilmInfo.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(Utility.Prepath+"texts/FilmInfo.txt"));
             while ((line = br.readLine()) != null){
                 count += 1;
             }

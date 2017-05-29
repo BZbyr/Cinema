@@ -1,7 +1,3 @@
-
-
-import com.sun.corba.se.spi.monitoring.MonitoredAttributeInfo;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -55,7 +51,6 @@ public class mainGUI extends JFrame implements ActionListener{
     //number of Tickets
     int ticketNum;
     //buffer for chosenMovie
-    //这些就是generate一张ticket所必须的属性，分别通过几个panel从user处收集齐
     String chosenFilmName;
     Seat chosenSeat;
     Screen chosenScreen;
@@ -198,7 +193,6 @@ public class mainGUI extends JFrame implements ActionListener{
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             if (ticketTypeArr.size() != (chosenSeatArr.size() - 1)) {
-
                                 ticketTypeArr.add(ticketTypePanelArr[finalI].returnTicketType());
                                 mainPanel.removeAll();
                                 mainPanel.add(ticketTypePanelArr[finalI + 1]);

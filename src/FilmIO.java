@@ -6,7 +6,7 @@ import java.io.*;
  */
 public class FilmIO {
     //FilmInfo.txt
-    File FilmInfo = new File("src/texts/FilmInfo.txt");
+    File FilmInfo = new File(Utility.Prepath+"texts/FilmInfo.txt");
 
 
     public Film readFilmInfo(String param) {
@@ -55,7 +55,7 @@ public class FilmIO {
             System.out.println(line);
         */
        try {
-            //追加写 append: true
+            // append: true
             bw = new BufferedWriter(new FileWriter(FilmInfo,true));
             bw.write(line);
             bw.newLine();

@@ -6,11 +6,11 @@
 public class Film {
     private int filmId;
     private String filmName;
-    //时间 分钟计
+    // time in minute
     private int timeInterval;
-    //图片路径为 pic/01.jsp
+    //source path of pirctures;
     private String pictureSrc;
-    //简介
+    //brief introduction
     private String filmIntro;
 
     public int getFilmId(){
@@ -42,7 +42,7 @@ public class Film {
     }
 
     public void setPictureSrc(String pictureSrc) {
-        this.pictureSrc = pictureSrc;
+        this.pictureSrc = Utility.Prepath+pictureSrc;
     }
 
     public void setFilmIntro(String filmIntro) {
@@ -51,7 +51,6 @@ public class Film {
 
     public Film(){}
     public Film(String filmName, int timeInterval, String pictureSrc,String filmIntro){
-        //自生成filmId的构造函数
         this.filmName = filmName;
         this.timeInterval = timeInterval;
         this. pictureSrc = pictureSrc;

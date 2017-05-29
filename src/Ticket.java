@@ -77,6 +77,8 @@ public class Ticket {
     @Override
     public String toString() {
         Film film = (new FilmIO()).readFilmInfo(""+filmId);
+        String ticketTypeString = getTypeName();
+
         return  "<html><body>" +
                 "Ticket ID: "+ticketId+
                 "<br/>Film Name:" + film.getfilmName()+
@@ -84,13 +86,34 @@ public class Ticket {
                  timeInterval + "min" +
                 "<br/>" +"\nScreen: " + screenId +
                 "<br/>seat: [" + (char)('A'+seat[0])+seat[1] +"]"+
-                "<br/>Tick type: " + ticketType
+                "<br/>Tick type: " + ticketTypeString
                 +"</body></html>";
     }
 
     //Constructor
     public Ticket(){
 
+    }
+    public String getTypeName(){
+        String ticketTypeString = "";
+        switch (this.ticketType){
+            case 1:
+                ticketTypeString = "Normal";
+                break;
+            case 2:
+                ticketTypeString = "Student";
+                break;
+            case 3:
+                ticketTypeString = "Children";
+                break;
+            case 4:
+                ticketTypeString = "Senior";
+                break;
+            default:
+                ticketTypeString = "Normal";
+                break;
+        }
+        return ticketTypeString;
     }
     public Ticket(int filmId,Date passedDate,int timeInterval,int screenId,int[] seat, int ticketType){
 

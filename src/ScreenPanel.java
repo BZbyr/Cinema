@@ -34,7 +34,7 @@ public class ScreenPanel extends JPanel{
         super();
         set(filmName,date);
     }
-    //第一个值传所在行，第二个值传想要判断的按钮的位置，返回这个按钮前面有多少个空位
+    //First para: which row; Second para: which button to be judge; return: how many noexist button before this button
     public int getNoExist(int rowNum, int butNum){
         HashSet<Seat> seatHashSet1=this.seatHashSet;
         int notexistCount=0;
@@ -49,7 +49,6 @@ public class ScreenPanel extends JPanel{
 
         }
         return notexistCount;
-
     }
 
     private void set(String filmName, String date) {
@@ -97,16 +96,15 @@ public class ScreenPanel extends JPanel{
 
                 Seat seat = new Seat(false,rowCount,colCount);
 
-                //此Seat不存在
+                //This seat is not exist
                 if(seatHashSet.contains(seat)){
                     seatButton[rowCount][colCount].setVisible(false);
-                    System.out.println("notEXIST"+rowCount+colCount);
+//                    System.out.println("notEXIST"+rowCount+colCount);
                     countNotExist++;
                 }
-                //此Seat已经被占用了
+                //This seat has been taken
                 if(takenHashSet.contains(seat)){
-                    System.out.println("TAKEN"+rowCount+colCount);
-
+//                    System.out.println("TAKEN"+rowCount+colCount);
                     seatButton[rowCount][(colCount+countNotExist)-1].setBackground(Color.GRAY);
                     seatButton[rowCount][(colCount+countNotExist)-1].setEnabled(false);
                 }
@@ -119,7 +117,7 @@ public class ScreenPanel extends JPanel{
         screenReturnButton.setBackground(Color.lightGray);
         submitPanel = new JPanel(new BorderLayout());
         screenReturnButton.setPreferredSize(new Dimension(120,20));
-        submitButton = new JButton("submit");
+        submitButton = new JButton("Submit");
         submitButton.setBackground(Color.lightGray);
         submitButton.setFont(fs);
         submitButton.setPreferredSize(new Dimension(100,50));

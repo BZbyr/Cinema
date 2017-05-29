@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by wangchao on 2017/5/20 0020.
  */
 public class AdminIO {
-    File AdminInfo = new File("src/texts/AdminInfo.txt");
+    File AdminInfo = new File(Utility.Prepath+"texts/AdminInfo.txt");
 
     public ArrayList<Admin> readAdminInfo(){
         ArrayList<Admin> adminArrayList = new ArrayList<>();

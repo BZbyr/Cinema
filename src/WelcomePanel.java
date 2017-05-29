@@ -17,12 +17,11 @@ public class WelcomePanel extends JPanel{
 
     JButton welcomeButton = new JButton("Start!");
 
-    ImageIcon image = new ImageIcon("src/pic/pic.jpg");
+    ImageIcon image = new ImageIcon(Utility.Prepath+"pic/pic.jpg");
 
     public WelcomePanel(){
         super();
         set();
-        
     }
 
     private void set() {

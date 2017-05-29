@@ -7,20 +7,21 @@ import java.util.ArrayList;
  * Created by wangchao on 2017/4/18 0018.
  */
 public class TicketIO implements IO{
-    File TicketInfo = new File("src/texts/TicketInfo.txt");
+    File TicketInfo = new File(Utility.Prepath+"texts/TicketInfo.txt");
     ArrayList<Ticket> ticketArr = new ArrayList<>();
 
     public boolean writeInfo(Object obj){
         Ticket ticket = (Ticket) obj;
+        genTicketFile(ticket);
         boolean flag = true;
         BufferedWriter bw = null;
         String line = "" + ticket.getTicketId() + "$" + ticket.getFilmId() + "$" + Utility.sdf.format(ticket.getDate()) + "$"
                 + ticket.getTimeInterval() + "$" + ticket.getScreenId() + "$" + ticket.getSeat()[0] +"$"+ ticket.getSeat()[1] + "$" + ticket.getTicketType();
 
         try {
-            //追加写 append: true
+            //append: true
             bw = new BufferedWriter(new FileWriter(TicketInfo,true));
-            System.out.println(line);
+//            System.out.println(line);
             bw.write(line);
             bw.newLine();
             bw.flush();
@@ -29,6 +30,37 @@ public class TicketIO implements IO{
             e.printStackTrace();
         }
         return flag;
+    }
+
+    private void genTicketFile(Ticket ticket){
+        File ticketFile = new File(Utility.Prepath+"texts/"+ticket.getTicketId()+".txt");
+        FilmControl fc = new FilmControl();
+        String filmName = fc.getFilmByName(""+ticket.getFilmId()).getfilmName();
+        BufferedWriter bw = null;
+        try {
+            if(!ticketFile.exists())
+                ticketFile.createNewFile();
+            // append: true
+            bw = new BufferedWriter(new FileWriter(ticketFile,true));
+            bw.write("Ticket ID: "+ticket.getTicketId());
+            bw.newLine();
+            bw.write("Film Name: " + filmName);
+            bw.newLine();
+            bw.write("Time: " + Utility.sdf.format(ticket.getDate()));
+            bw.newLine();
+            bw.write("Last: " + ticket.getTimeInterval()+"mins");
+            bw.newLine();
+            bw.write("Screen: NO." + ticket.getScreenId());
+            bw.newLine();
+            bw.write("Seat: [" + (char)('A'+ticket.getSeat()[0])+ticket.getSeat()[1] +"]");
+            bw.newLine();
+            bw.write("Tick type: " + ticket.getTypeName());
+            bw.newLine();
+            bw.flush();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<Ticket> readInfo(){

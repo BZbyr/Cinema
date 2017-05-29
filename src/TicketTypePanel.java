@@ -71,6 +71,7 @@ public class TicketTypePanel extends JPanel{
                 break;
             case "Senior":
                 ticketType = 4;
+                break;
             default:
                 System.out.println("Error input");
                 break;
@@ -81,7 +82,7 @@ public class TicketTypePanel extends JPanel{
     private void set(int num) {
         ticketTypeLabel= new JLabel("Please choose type of your "+num+" ticket: ",JLabel.CENTER);
         this.setLayout(new BorderLayout());
-        //ButtonGroup中按钮互斥，不需要放入panel中
+        //buttons in ButtonGroup do not have to put into panel
         typeButtonGroup.add(adultButton);
         typeButtonGroup.add(studentButton);
         typeButtonGroup.add(childButton);
@@ -111,6 +112,8 @@ public class TicketTypePanel extends JPanel{
                 textArea.setVisible(false);
                 textAreaPanel.removeAll();
                 textAreaPanel.add(submitButton);
+                textAreaPanel.setVisible(false);
+                textAreaPanel.setVisible(true);
                 textAreaPanel.validate();
             }
         });
@@ -148,6 +151,8 @@ public class TicketTypePanel extends JPanel{
                 textArea.setVisible(false);
                 textAreaPanel.removeAll();
                 textAreaPanel.add(submitButton);
+                textAreaPanel.setVisible(false);
+                textAreaPanel.setVisible(true);
                 textAreaPanel.validate();
             }
         });

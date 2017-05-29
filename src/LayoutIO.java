@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Created by wangchao on 2017/4/17 0017.
  */
 public class LayoutIO {
-    File LayoutInfo = new File("src/texts/LayoutInfo.txt");
+    File LayoutInfo = new File(Utility.Prepath+"texts/LayoutInfo.txt");
 
     public ArrayList<Layout> readLayoutFromFile() {
         ArrayList<Layout> layoutArr = new ArrayList<>();
@@ -21,7 +21,6 @@ public class LayoutIO {
         try {
             br = new BufferedReader(new FileReader(LayoutInfo));
             while ((line = br.readLine()) != null) {
-                //文件分割符
                 lineElement = line.split("\\$");
                 Layout tempLayout = new Layout();
                 tempLayout.setLayoutId(Integer.parseInt(lineElement[0]));

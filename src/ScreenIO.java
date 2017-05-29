@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Created by wangchao on 2017/4/17 0017.
  */
 public class ScreenIO {
-    File ScreenInfo = new File("src/texts/ScreenInfo.txt");
+    File ScreenInfo = new File(Utility.Prepath+"texts/ScreenInfo.txt");
     //return numbers of screen
     public int calScreenNum() {
         BufferedReader br = null;
@@ -35,7 +35,7 @@ public class ScreenIO {
             System.out.println(line);
         */
         try {
-            //追加写 append: true
+            //append: true
             bw = new BufferedWriter(new FileWriter(ScreenInfo, appendFlag));
             bw.write(line);
             bw.newLine();
@@ -55,7 +55,6 @@ public class ScreenIO {
         try {
             br = new BufferedReader(new FileReader(ScreenInfo));
             while ((line = br.readLine()) != null) {
-                //文件分割符
                 lineElement = line.split("\\$");
                 //String line = "" + screen.screenId + "$" + screen.filmId + "$" + sdf.format(screen.date) + "$" +
                 // screen.timeInterval + "$"
