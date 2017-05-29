@@ -1,0 +1,5 @@
+0$KONG$118$pic/kong.jpg$Skull ISLAND
+1$LOGAN$135$pic/logan.jpg$X-MAN
+2$Beauty And The Beast$130$pic/bb.jpg$tell about a love story
+3$Moonlight$111$pic/moonlight.jpg$A boy's story
+4$LA LA LAND$128$pic/lala.jpg$Music Movie
