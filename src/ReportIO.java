@@ -1,8 +1,5 @@
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +9,9 @@ public class ReportIO {
 
     private static final double ChildTicketDiscount = 0.5;
     private static final double StudentTicketDiscount = 0.85;
+    private  static  final double SeniorTicketDiscount = 0.8;
     ArrayList<Ticket> ticketArr = new ArrayList<>();
+    int count;
     public boolean generateReport() {
         try{
             ticketArr = (new TicketIO()).readInfo();
@@ -23,8 +22,19 @@ public class ReportIO {
             BufferedWriter bw = null;
             bw = new BufferedWriter(new FileWriter(report));
 
-            int[] saleNum = new int[5];
-            int[] FilmId = {0,1,2,3,4};
+            String line;
+
+            BufferedReader br = new BufferedReader(new FileReader("src/texts/FilmInfo.txt"));
+            while ((line = br.readLine()) != null){
+                count += 1;
+            }
+            //System.out.print("TEST MY PROGRAM"+ count);
+            int[] saleNum = new int[count];
+            int[] FilmId = new int[count];
+            FilmIO filmio = new FilmIO();
+            for (int x = 0; x < saleNum.length; x++){
+                FilmId[x] = filmio.readFilmInfo(""+x).getFilmId();
+            }
             for (int i = 0; i<saleNum.length ;i++){
                 int count1 = 0;
                 for(Ticket t:ticketArr){
@@ -35,18 +45,19 @@ public class ReportIO {
                 saleNum[i] = count1;
             }
 
-            int[] count2 = {0,0,0};
-            String[] ticketType = {"Normal","Student","Child"};
+            int[] count2 = {0,0,0,0};
+            String[] ticketType = {"Normal","Student","Child", "Senior"};
             for(Ticket t: ticketArr){
                 switch(t.getTicketType()){
                     case 1 :count2[0]++;break;
                     case 2 :count2[1]++;break;
                     case 3 :count2[2]++;break;
+                    case 4 :count2[3]++;break;
                 }
             }
 
             double sumOfSelling;
-            sumOfSelling = (count2[0]+count2[1]*StudentTicketDiscount+count2[2]*ChildTicketDiscount)*16;
+            sumOfSelling = (count2[0]+count2[1]*StudentTicketDiscount+count2[2]*ChildTicketDiscount+count2[3]*SeniorTicketDiscount)*16;
             bw.write("----------------------------------------------------");bw.newLine();
             bw.write("               SELLING      REPORT                  ");bw.newLine();
             bw.newLine();

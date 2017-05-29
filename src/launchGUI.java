@@ -6,7 +6,6 @@
 public class launchGUI{
 	public static boolean whileFlag = false;
 	public static void main(String args[]){
-
 		do {
 			mainGUI mGui = new mainGUI();
 		}while(whileFlag);
