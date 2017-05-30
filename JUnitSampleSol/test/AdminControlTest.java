@@ -42,14 +42,14 @@ public class AdminControlTest {
     @Test
     public void testLogin() {
         System.out.println("login");
-        String username = "";
-        String password = "";
+        String username = "wc";
+        String password = "2345";
         AdminControl instance = new AdminControl();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.login(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

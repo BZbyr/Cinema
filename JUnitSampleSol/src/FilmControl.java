@@ -22,7 +22,7 @@ public class FilmControl {
         /*if(Test.Debug) {
             System.out.println("list film");
         }*/
-        Film film = new Film();
+
         FilmIO fileIO = new FilmIO();
         int filmNum = fileIO.calfilmNum();
         for(int i = 0 ; i< filmNum ; i++) {

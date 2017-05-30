@@ -17,6 +17,7 @@ public class AdminIO {
             br = new BufferedReader(new FileReader(AdminInfo));
 
             while((line = br.readLine()) != null){
+                line = line.trim();
                 System.out.println("line+"+line);
                 Admin tempAdmin = new Admin();
                 lineElement = line.split("\\$");

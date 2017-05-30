@@ -1,7 +1,0 @@
-Ticket ID: 134331
-Film Name: Moonlight
-Time: 18:00
-Last: 111mins
-Screen: NO.1
-Seat: [B4]
-Tick type: Normal

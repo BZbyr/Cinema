@@ -1,7 +1,0 @@
-Ticket ID: 212344
-Film Name: LA LA LAND
-Time: 13:00
-Last: 128mins
-Screen: NO.1
-Seat: [B4]
-Tick type: Normal

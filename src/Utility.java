@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
  */
 public class Utility {
     public static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-    //public final static String Prepath = "src/";
-    public final static String Prepath = "";
+    public final static String Prepath = "src/";
+    //public final static String Prepath = "";
 
     public final static Color c = new Color(140,180,210);
     public final static Font f = new Font("Arial",Font.PLAIN, 30);

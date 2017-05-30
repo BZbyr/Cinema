@@ -32,4 +32,8 @@ public class Admin {
         else
             return false;
     }
+    
+    public String toString(){
+        return this.username + this.password;
+    }
 }

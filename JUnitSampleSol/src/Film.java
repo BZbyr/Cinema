@@ -60,9 +60,7 @@ public class Film {
         this.filmId = count++;
         this.filmIntro = filmIntro;
     }
-
-
-
-
-
+    public String toString(){
+        return this.filmName + this.filmIntro + this.pictureSrc + this.timeInterval;
+    }
 }

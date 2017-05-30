@@ -47,7 +47,7 @@ public class FilmControlTest {
         FilmControl instance = new FilmControl();
         instance.addFilm(film);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -60,7 +60,7 @@ public class FilmControlTest {
         FilmControl instance = new FilmControl();
         instance.deleteFilm(film);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -69,13 +69,17 @@ public class FilmControlTest {
     @Test
     public void testGetFilmByName() {
         System.out.println("getFilmByName");
-        String filmName = "";
+        String filmName = "KONG";
         FilmControl instance = new FilmControl();
-        Film expResult = null;
-        Film result = instance.getFilmByName(filmName);
+        Film temp1 = new Film("KONG", 118,Utility.Prepath+"pic/kong.jpg", "Skull ISLAND");
+
+        String expResult = temp1.toString();
+        
+        Film temp = instance.getFilmByName(filmName);
+        String result = temp.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -85,11 +89,29 @@ public class FilmControlTest {
     public void testListFilm() {
         System.out.println("listFilm");
         FilmControl instance = new FilmControl();
-        ArrayList<Film> expResult = null;
-        ArrayList<Film> result = instance.listFilm();
+        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> expResult = new ArrayList<String>();
+        
+        ArrayList<Film> temp = instance.listFilm();
+        
+        Film temp2 = new Film("KONG", 118,"pic/kong.jpg", "Skull ISLAND");
+        Film temp3 = new Film("LOGAN",135, "pic/logan.jpg","X-MAN");
+        Film temp4 = new Film("Beauty And The Beast",130,"pic/bb.jpg","tell about a love story");
+        Film temp5 = new Film("Moonlight",111,"pic/moonlight.jpg","A boy's story");
+        Film temp6 = new Film("LA LA LAND",128,"pic/lala.jpg","Music Movie");
+        
+        expResult.add(temp2.toString());
+        expResult.add(temp3.toString());
+        expResult.add(temp4.toString());
+        expResult.add(temp5.toString());
+        expResult.add(temp6.toString());
+        
+        for (Film b : temp){
+            result.add(b.toString());
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

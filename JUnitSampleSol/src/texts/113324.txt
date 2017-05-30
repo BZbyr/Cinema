@@ -1,7 +1,0 @@
-Ticket ID: 113324
-Film Name: LA LA LAND
-Time: 13:00
-Last: 128mins
-Screen: NO.1
-Seat: [B3]
-Tick type: Normal

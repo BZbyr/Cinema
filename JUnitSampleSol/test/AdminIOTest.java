@@ -44,11 +44,27 @@ public class AdminIOTest {
     public void testReadAdminInfo() {
         System.out.println("readAdminInfo");
         AdminIO instance = new AdminIO();
-        ArrayList<Admin> expResult = null;
-        ArrayList<Admin> result = instance.readAdminInfo();
+        Admin instance1 = new Admin();
+        Admin instance2 = new Admin();
+        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> expResult = new ArrayList<String>();
+        
+        instance1.setUsername("wc");
+        instance2.setUsername("tom");
+        instance1.setPassword("2345");
+        instance2.setPassword("123");
+        
+        expResult.add(instance2.toString());
+        expResult.add(instance1.toString());
+        
+        ArrayList<Admin> temp = instance.readAdminInfo();
+        
+        for (Admin b : temp){
+            result.add(b.toString());
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
